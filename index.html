@@ -1,0 +1,404 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Discord Board Marketplace</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0d12;
+            color: #ffffff;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            width: 100%;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 8%;
+            background: #11141c;
+            border-bottom: 1px solid #242936;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #5865f2;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #d5d7df;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #5865f2;
+        }
+
+        .cart-button {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #5865f2;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .cart-button:hover {
+            background: #4752c4;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(
+                circle at top,
+                #202653 0%,
+                #0b0d12 60%
+            );
+        }
+
+        .hero h1 {
+            max-width: 850px;
+            margin-bottom: 20px;
+            font-size: 60px;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: #5865f2;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin-bottom: 30px;
+            color: #aeb2c0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary-button {
+            background: #5865f2;
+            color: #ffffff;
+        }
+
+        .primary-button:hover {
+            background: #4752c4;
+            transform: translateY(-2px);
+        }
+
+        .secondary-button {
+            border: 1px solid #3a3f4d;
+            color: #ffffff;
+        }
+
+        .secondary-button:hover {
+            background: #181c25;
+        }
+
+        /* FEATURES */
+
+        .features {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            margin-bottom: 10px;
+            font-size: 36px;
+        }
+
+        .section-title p {
+            color: #969baa;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            background: #11141c;
+            border: 1px solid #242936;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #5865f2;
+        }
+
+        .feature-icon {
+            margin-bottom: 15px;
+            font-size: 35px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .feature-card p {
+            color: #999eac;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px 8%;
+            background: #11141c;
+            border-top: 1px solid #242936;
+            text-align: center;
+            color: #777c8b;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            Discord Board Marketplace
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="bots.html">Bots</a>
+            </li>
+
+            <li>
+                <a href="hosting.html">Hosting</a>
+            </li>
+
+            <li>
+                <a href="support.html">Support</a>
+            </li>
+
+        </ul>
+
+        <a href="cart.html" class="cart-button">
+            🛒 Cart
+        </a>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+                The Ultimate
+                <span>Discord Marketplace</span>
+            </h1>
+
+            <p>
+                Discover powerful Discord bots, create amazing servers,
+                and find reliable hosting solutions all in one place.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="bots.html" class="button primary-button">
+                    Explore Bots
+                </a>
+
+                <a href="hosting.html" class="button secondary-button">
+                    View Hosting
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURES -->
+
+        <section class="features">
+
+            <div class="section-title">
+
+                <h2>
+                    Everything You Need
+                </h2>
+
+                <p>
+                    Build, manage and grow your Discord community.
+                </p>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🤖
+                    </div>
+
+                    <h3>
+                        Discord Bots
+                    </h3>
+
+                    <p>
+                        Find powerful bots for moderation,
+                        entertainment, economy and much more.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🖥️
+                    </div>
+
+                    <h3>
+                        Server Hosting
+                    </h3>
+
+                    <p>
+                        Choose from free and premium hosting
+                        plans for your Discord bots.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🛒
+                    </div>
+
+                    <h3>
+                        Easy Shopping
+                    </h3>
+
+                    <p>
+                        Add products to your cart and manage
+                        your purchases easily.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Discord Board Marketplace.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
