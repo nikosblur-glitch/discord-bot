@@ -1,0 +1,506 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Discord Bots | Discord Board Marketplace</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0d12;
+            color: #ffffff;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            min-height: 70px;
+            padding: 15px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #11141c;
+            border-bottom: 1px solid #242936;
+        }
+
+        .logo {
+            color: #5865f2;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #d5d7df;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #5865f2;
+        }
+
+        .cart-button {
+            padding: 10px 18px;
+            background: #5865f2;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* HEADER */
+
+        .page-header {
+            padding: 80px 20px 50px;
+            text-align: center;
+            background: radial-gradient(
+                circle at top,
+                #202653 0%,
+                #0b0d12 60%
+            );
+        }
+
+        .page-header h1 {
+            margin-bottom: 15px;
+            font-size: 48px;
+        }
+
+        .page-header h1 span {
+            color: #5865f2;
+        }
+
+        .page-header p {
+            color: #aeb2c0;
+            font-size: 18px;
+        }
+
+        /* MARKETPLACE */
+
+        .marketplace {
+            padding: 60px 8%;
+        }
+
+        .marketplace-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* BOT CARD */
+
+        .bot-card {
+            overflow: hidden;
+            background: #11141c;
+            border: 1px solid #242936;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .bot-card:hover {
+            transform: translateY(-6px);
+            border-color: #5865f2;
+        }
+
+        .bot-image {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #191d29;
+            font-size: 70px;
+        }
+
+        .bot-content {
+            padding: 25px;
+        }
+
+        .bot-content h2 {
+            margin-bottom: 10px;
+        }
+
+        .bot-content p {
+            min-height: 70px;
+            margin-bottom: 20px;
+            color: #999eac;
+            line-height: 1.5;
+        }
+
+        .bot-price {
+            margin-bottom: 20px;
+            color: #5865f2;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .bot-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .button {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+
+        .view-button {
+            background: #242936;
+            color: white;
+        }
+
+        .view-button:hover {
+            background: #303644;
+        }
+
+        .cart-button-small {
+            background: #5865f2;
+            color: white;
+        }
+
+        .cart-button-small:hover {
+            background: #4752c4;
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 50px;
+            padding: 30px 8%;
+            background: #11141c;
+            border-top: 1px solid #242936;
+            text-align: center;
+            color: #777c8b;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .marketplace-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-header h1 {
+                font-size: 38px;
+            }
+
+            .marketplace-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            Discord Board Marketplace
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="bots.html">
+                    Bots
+                </a>
+            </li>
+
+            <li>
+                <a href="hosting.html">
+                    Hosting
+                </a>
+            </li>
+
+            <li>
+                <a href="support.html">
+                    Support
+                </a>
+            </li>
+
+        </ul>
+
+
+        <a
+            href="cart.html"
+            class="cart-button"
+        >
+            🛒 Cart
+        </a>
+
+    </nav>
+
+
+    <!-- PAGE HEADER -->
+
+    <header class="page-header">
+
+        <h1>
+            Discord <span>Bots</span>
+        </h1>
+
+        <p>
+            Discover powerful bots for your Discord server.
+        </p>
+
+    </header>
+
+
+    <!-- MARKETPLACE -->
+
+    <main class="marketplace">
+
+        <div class="marketplace-grid">
+
+
+            <!-- BOT 1 -->
+
+            <div class="bot-card">
+
+                <div class="bot-image">
+                    🤖
+                </div>
+
+                <div class="bot-content">
+
+                    <h2>
+                        Moderation Bot
+                    </h2>
+
+                    <p>
+                        A powerful moderation bot with
+                        auto-moderation, warnings and bans.
+                    </p>
+
+                    <div class="bot-price">
+                        €5.00
+                    </div>
+
+                    <div class="bot-buttons">
+
+                        <a
+                            href="bot.html"
+                            class="button view-button"
+                        >
+                            View Bot
+                        </a>
+
+                        <button
+                            class="button cart-button-small"
+                            onclick="addToCart('Moderation Bot', 5)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOT 2 -->
+
+            <div class="bot-card">
+
+                <div class="bot-image">
+                    🎵
+                </div>
+
+                <div class="bot-content">
+
+                    <h2>
+                        Music Bot
+                    </h2>
+
+                    <p>
+                        Play music in your Discord voice
+                        channels with an easy-to-use bot.
+                    </p>
+
+                    <div class="bot-price">
+                        €7.00
+                    </div>
+
+                    <div class="bot-buttons">
+
+                        <a
+                            href="bot.html"
+                            class="button view-button"
+                        >
+                            View Bot
+                        </a>
+
+                        <button
+                            class="button cart-button-small"
+                            onclick="addToCart('Music Bot', 7)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOT 3 -->
+
+            <div class="bot-card">
+
+                <div class="bot-image">
+                    💰
+                </div>
+
+                <div class="bot-content">
+
+                    <h2>
+                        Economy Bot
+                    </h2>
+
+                    <p>
+                        Add an economy system with coins,
+                        shops, rewards and leaderboards.
+                    </p>
+
+                    <div class="bot-price">
+                        €10.00
+                    </div>
+
+                    <div class="bot-buttons">
+
+                        <a
+                            href="bot.html"
+                            class="button view-button"
+                        >
+                            View Bot
+                        </a>
+
+                        <button
+                            class="button cart-button-small"
+                            onclick="addToCart('Economy Bot', 10)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Discord Board Marketplace.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- CART SCRIPT -->
+
+    <script>
+
+        function addToCart(name, price) {
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem("cart")
+                ) || [];
+
+            cart.push({
+                name: name,
+                price: price
+            });
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+            alert(
+                name +
+                " has been added to your cart!"
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+```
