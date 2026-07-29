@@ -6,82 +6,517 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
-<title>Discord Bots</title>
+<title>DBM Owner Panel</title>
+
 
 <style>
 
-body {
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0b0d12;
-    color: white;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    color: white;
+
+    background:
+    radial-gradient(
+        circle at top left,
+        rgba(88,101,242,0.25),
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at bottom right,
+        rgba(139,92,246,0.20),
+        transparent 35%
+    ),
+
+    #05060b;
+
+    padding: 40px 20px;
+
+}
+
+
+.container {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+}
+
+
+.header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.logo {
+
+    font-size: 26px;
+
+    font-weight: 900;
+
+}
+
+
+.logo span {
+
+    color: #7280ff;
+
+}
+
+
+.glass {
+
+    background:
+    rgba(255,255,255,0.055);
+
+    border:
+    1px solid
+    rgba(255,255,255,0.12);
+
+    backdrop-filter:
+    blur(25px);
+
+    -webkit-backdrop-filter:
+    blur(25px);
+
+    border-radius: 22px;
+
+    box-shadow:
+    0 25px 80px
+    rgba(0,0,0,0.35);
+
+}
+
+
+.dashboard {
+
+    padding: 30px;
+
+}
+
 
 h1 {
-    text-align: center;
-    margin: 50px 0;
+
+    font-size: 34px;
+
+    margin-bottom: 8px;
+
 }
 
-.bot-grid {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
+
+.subtitle {
+
+    color:
+    rgba(255,255,255,0.5);
+
+    margin-bottom: 30px;
+
+}
+
+
+.form-grid {
+
     display: grid;
+
     grid-template-columns:
-    repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    repeat(2, 1fr);
+
+    gap: 15px;
+
 }
 
-.bot-card {
-    background: #11141c;
-    border: 1px solid #242936;
-    border-radius: 15px;
-    padding: 25px;
+
+.full {
+
+    grid-column:
+    1 / -1;
+
 }
 
-.bot-card img {
+
+input,
+textarea,
+select {
+
     width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    border:
+    1px solid
+    rgba(255,255,255,0.1);
+
+    background:
+    rgba(255,255,255,0.05);
+
+    color: white;
+
+    outline: none;
+
+    font-size: 15px;
+
 }
 
-.price {
-    color: #5865f2;
-    font-size: 22px;
-    font-weight: bold;
+
+select option {
+
+    background: #11131d;
+
 }
 
-.stock {
-    color: #55d68a;
+
+textarea {
+
+    min-height: 100px;
+
+    resize: vertical;
+
 }
 
-.out {
-    color: #ff6868;
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    border-color:
+    #7280ff;
+
+    box-shadow:
+    0 0 25px
+    rgba(88,101,242,0.15);
+
 }
+
+
+.buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+
+}
+
 
 button {
-    width: 100%;
-    padding: 13px;
+
     border: none;
-    border-radius: 8px;
-    background: #5865f2;
-    color: white;
-    font-weight: bold;
+
     cursor: pointer;
+
+    color: white;
+
+    padding: 13px 20px;
+
+    border-radius: 11px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+
 }
 
-button:hover {
-    background: #4752c4;
+
+.primary {
+
+    background:
+    linear-gradient(
+        135deg,
+        #5865f2,
+        #8b5cf6
+    );
+
 }
 
-button:disabled {
-    background: #444957;
-    cursor: not-allowed;
+
+.primary:hover {
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+    0 10px 35px
+    rgba(88,101,242,0.35);
+
+}
+
+
+.secondary {
+
+    background:
+    rgba(255,255,255,0.08);
+
+}
+
+
+.secondary:hover {
+
+    background:
+    rgba(255,255,255,0.15);
+
+}
+
+
+.danger {
+
+    background:
+    rgba(220,60,70,0.2);
+
+}
+
+
+.restock {
+
+    background:
+    rgba(30,180,120,0.2);
+
+}
+
+
+.edit {
+
+    background:
+    rgba(88,101,242,0.2);
+
+}
+
+
+.inventory-title {
+
+    margin-top: 50px;
+
+    margin-bottom: 20px;
+
+    font-size: 25px;
+
+}
+
+
+.bot-list {
+
+    display: grid;
+
+    gap: 15px;
+
+}
+
+
+.bot-item {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    background:
+    rgba(255,255,255,0.045);
+
+    border:
+    1px solid
+    rgba(255,255,255,0.08);
+
+    border-radius: 18px;
+
+}
+
+
+.bot-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.bot-image {
+
+    width: 65px;
+
+    height: 65px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+}
+
+
+.bot-info h3 {
+
+    margin-bottom: 5px;
+
+}
+
+
+.bot-info p {
+
+    color:
+    rgba(255,255,255,0.5);
+
+    font-size: 14px;
+
+}
+
+
+.stock {
+
+    margin-top: 5px;
+
+    color:
+    #7dffbd;
+
+}
+
+
+.out {
+
+    color:
+    #ff7272;
+
+}
+
+
+.bot-actions {
+
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.empty {
+
+    padding: 30px;
+
+    text-align: center;
+
+    color:
+    rgba(255,255,255,0.45);
+
+}
+
+
+.status {
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    display: none;
+
+}
+
+
+.status.success {
+
+    display: block;
+
+    background:
+    rgba(30,180,120,0.12);
+
+    color:
+    #7dffbd;
+
+}
+
+
+.status.error {
+
+    display: block;
+
+    background:
+    rgba(220,60,70,0.12);
+
+    color:
+    #ff8585;
+
+}
+
+
+@media
+(max-width: 700px) {
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .full {
+
+        grid-column: auto;
+
+    }
+
+    .header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .bot-item {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
 }
 
 </style>
@@ -92,21 +527,170 @@ button:disabled {
 <body>
 
 
+<div class="container">
+
+
+<div class="header">
+
+<div class="logo">
+
+Discord
+<span>Board</span>
+Marketplace
+
+</div>
+
+<a
+href="bots.html"
+style="
+color:white;
+text-decoration:none;
+background:rgba(255,255,255,0.08);
+padding:12px 18px;
+border-radius:10px;
+"
+>
+
+← View Bots
+
+</a>
+
+</div>
+
+
+
+<div class="glass dashboard">
+
+
 <h1>
 
-Discord Bots Marketplace
+🔐 Owner Panel
 
 </h1>
 
 
-<div
-class="bot-grid"
-id="botGrid"
->
+<p class="subtitle">
+
+Manage your Discord bots, prices,
+stock and products.
+
+</p>
+
+
+
+<div class="form-grid">
+
+
+<input
+id="botName"
+placeholder="Bot Name"
+/>
+
+
+<input
+id="botPrice"
+type="number"
+step="0.01"
+min="0"
+placeholder="Price (€)"
+/>
+
+
+<input
+id="botStock"
+type="number"
+min="0"
+placeholder="Stock"
+/>
+
+
+<input
+id="botInvite"
+placeholder="Discord Invite Link"
+/>
+
+
+<input
+id="botImage"
+class="full"
+placeholder="Bot Image URL"
+/>
+
+
+<textarea
+id="botDescription"
+class="full"
+placeholder="Bot Description"
+></textarea>
+
+
 </div>
 
 
+
+<div class="buttons">
+
+
+<button
+class="primary"
+onclick="saveBot()"
+>
+
+➕ Add Bot
+
+</button>
+
+
+<button
+class="secondary"
+onclick="clearForm()"
+>
+
+Clear
+
+</button>
+
+
+</div>
+
+
+<div
+id="status"
+class="status"
+></div>
+
+
+
+<h2 class="inventory-title">
+
+📦 Bot Inventory
+
+</h2>
+
+
+<div
+id="botList"
+class="bot-list"
+></div>
+
+
+</div>
+
+
+</div>
+
+
+
 <script>
+
+
+/* =====================================================
+   DATABASE
+===================================================== */
+
+
+const STORAGE_KEY =
+"DBM_MARKETPLACE_BOTS";
 
 
 let bots =
@@ -114,177 +698,825 @@ let bots =
 JSON.parse(
 
 localStorage.getItem(
-"marketplaceBots"
+STORAGE_KEY
 )
 
 ) || [];
 
 
 
-let grid =
+let editingId = null;
 
-document
-.getElementById(
-"botGrid"
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+
+const nameInput =
+document.getElementById(
+"botName"
+);
+
+
+const priceInput =
+document.getElementById(
+"botPrice"
+);
+
+
+const stockInput =
+document.getElementById(
+"botStock"
+);
+
+
+const inviteInput =
+document.getElementById(
+"botInvite"
+);
+
+
+const imageInput =
+document.getElementById(
+"botImage"
+);
+
+
+const descriptionInput =
+document.getElementById(
+"botDescription"
+);
+
+
+const botList =
+document.getElementById(
+"botList"
+);
+
+
+const statusBox =
+document.getElementById(
+"status"
 );
 
 
 
-bots
-
-.filter(
-
-bot =>
-!bot.hidden
-
-)
-
-.forEach(
-
-bot => {
+/* =====================================================
+   SAVE DATA
+===================================================== */
 
 
-const card =
+function saveData() {
 
-document
-.createElement(
-"div"
-);
+    localStorage.setItem(
 
+        STORAGE_KEY,
 
-card.className =
-"bot-card";
+        JSON.stringify(
+            bots
+        )
 
-
-const image =
-
-bot.image ||
-
-"https://via.placeholder.com/500x300?text=Discord+Bot";
-
-
-card.innerHTML = `
-
-<img
-src="${image}"
-alt="${bot.name}"
->
-
-
-<h2>
-${bot.name}
-</h2>
-
-
-<p>
-${bot.description}
-</p>
-
-
-<p>
-Bot ID: ${bot.botId}
-</p>
-
-
-<p class="price">
-
-€${bot.price.toFixed(2)}
-
-</p>
-
-
-<p class="${
-    bot.stock > 0
-    ? "stock"
-    : "out"
-}">
-
-${
-    bot.stock > 0
-    ? "Available: " + bot.stock
-    : "Out of Stock"
-}
-
-</p>
-
-
-<button
-onclick="addToCart(
-'${bot.name.replace(/'/g, "\\'")}',
-${bot.price}
-)"
-${bot.stock <= 0 ? "disabled" : ""}
->
-
-🛒 Add to Cart
-
-</button>
-
-`;
-
-
-grid.appendChild(
-card
-);
+    );
 
 }
 
-);
+
+
+/* =====================================================
+   ADD / EDIT BOT
+===================================================== */
+
+
+function saveBot() {
+
+
+    const name =
+    nameInput.value.trim();
+
+
+    const price =
+    Number(
+        priceInput.value
+    );
+
+
+    const stock =
+    Number(
+        stockInput.value
+    );
+
+
+    const invite =
+    inviteInput.value.trim();
+
+
+    const image =
+    imageInput.value.trim();
+
+
+    const description =
+    descriptionInput.value.trim();
 
 
 
-function addToCart(
-name,
-price
+    if (
+        !name ||
+        !Number.isFinite(price) ||
+        price < 0 ||
+        !Number.isInteger(stock) ||
+        stock < 0
+    ) {
+
+        showStatus(
+            "Please enter a valid name, price and stock.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+
+    if (editingId !== null) {
+
+
+        const bot =
+
+        bots.find(
+
+            item =>
+            item.id ===
+            editingId
+
+        );
+
+
+        if (bot) {
+
+            bot.name =
+            name;
+
+            bot.price =
+            price;
+
+            bot.stock =
+            stock;
+
+            bot.invite =
+            invite;
+
+            bot.image =
+            image;
+
+            bot.description =
+            description;
+
+        }
+
+
+        editingId = null;
+
+
+        showStatus(
+            "Bot updated successfully!",
+            "success"
+        );
+
+
+    } else {
+
+
+        const newBot = {
+
+
+            id:
+            Date.now(),
+
+
+            name:
+            name,
+
+
+            price:
+            price,
+
+
+            stock:
+            stock,
+
+
+            invite:
+            invite,
+
+
+            image:
+            image,
+
+
+            description:
+            description
+
+
+        };
+
+
+        bots.push(
+            newBot
+        );
+
+
+        showStatus(
+            "Bot added successfully!",
+            "success"
+        );
+
+    }
+
+
+
+    saveData();
+
+    clearForm();
+
+    renderBots();
+
+}
+
+
+
+/* =====================================================
+   RENDER BOTS
+===================================================== */
+
+
+function renderBots() {
+
+
+    botList.innerHTML =
+    "";
+
+
+
+    if (
+        bots.length === 0
+    ) {
+
+
+        botList.innerHTML = `
+
+        <div class="empty">
+
+        📦 No bots in your inventory yet.
+
+        <br><br>
+
+        Use the form above to add your first bot.
+
+        </div>
+
+        `;
+
+
+        return;
+
+    }
+
+
+
+    bots.forEach(
+
+        bot => {
+
+
+            const item =
+            document.createElement(
+                "div"
+            );
+
+
+            item.className =
+            "bot-item";
+
+
+            const image =
+            bot.image ||
+
+            "https://via.placeholder.com/100";
+
+
+
+            const stockClass =
+
+            bot.stock > 0
+
+            ?
+
+            "stock"
+
+            :
+
+            "out";
+
+
+
+            const stockText =
+
+            bot.stock > 0
+
+            ?
+
+            `Stock: ${bot.stock}`
+
+            :
+
+            "Out of Stock";
+
+
+
+            item.innerHTML = `
+
+
+            <div class="bot-left">
+
+
+                <img
+
+                class="bot-image"
+
+                src="${escapeHTML(
+                    image
+                )}"
+
+                alt="Bot"
+
+
+                >
+
+
+                <div class="bot-info">
+
+
+                    <h3>
+
+                    ${escapeHTML(
+                        bot.name
+                    )}
+
+                    </h3>
+
+
+                    <p>
+
+                    €${Number(
+                        bot.price
+                    ).toFixed(2)}
+
+                    </p>
+
+
+                    <p class="${stockClass}">
+
+                    ${stockText}
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="bot-actions">
+
+
+                <button
+
+                class="restock"
+
+                onclick="restockBot(
+                    ${bot.id}
+                )"
+
+                >
+
+                🔄 Restock
+
+                </button>
+
+
+                <button
+
+                class="edit"
+
+                onclick="editBot(
+                    ${bot.id}
+                )"
+
+                >
+
+                ✏️ Edit
+
+                </button>
+
+
+                <button
+
+                class="danger"
+
+                onclick="deleteBot(
+                    ${bot.id}
+                )"
+
+                >
+
+                🗑️ Delete
+
+                </button>
+
+
+            </div>
+
+
+            `;
+
+
+            botList.appendChild(
+                item
+            );
+
+
+        }
+
+    );
+
+}
+
+
+
+/* =====================================================
+   RESTOCK
+===================================================== */
+
+
+function restockBot(
+    id
 ) {
 
 
-let cart =
+    const bot =
 
-JSON.parse(
+    bots.find(
 
-localStorage.getItem(
-"cart"
-)
+        item =>
+        item.id ===
+        id
 
-) || [];
-
-
-cart.push({
-
-id:
-Date.now(),
-
-name:
-name,
-
-price:
-price
-
-});
+    );
 
 
-localStorage.setItem(
+    if (!bot) {
 
-"cart",
+        return;
 
-JSON.stringify(
-cart
-
-)
-
-);
+    }
 
 
-alert(
 
-name +
-" added to cart!"
+    const amount =
 
-);
+    Number(
 
+        prompt(
+            `Current stock: ${bot.stock}\nHow many do you want to add?`
+        )
+
+    );
+
+
+
+    if (
+
+        !Number.isInteger(
+            amount
+        ) ||
+
+        amount <= 0
+
+    ) {
+
+
+        showStatus(
+            "Invalid restock amount.",
+            "error"
+        );
+
+
+        return;
+
+    }
+
+
+
+    bot.stock +=
+    amount;
+
+
+    saveData();
+
+    renderBots();
+
+
+    showStatus(
+        "Stock updated successfully!",
+        "success"
+    );
 
 }
+
+
+
+/* =====================================================
+   EDIT BOT
+===================================================== */
+
+
+function editBot(
+    id
+) {
+
+
+    const bot =
+
+    bots.find(
+
+        item =>
+        item.id ===
+        id
+
+    );
+
+
+    if (!bot) {
+
+        return;
+
+    }
+
+
+
+    editingId =
+    id;
+
+
+    nameInput.value =
+    bot.name;
+
+
+    priceInput.value =
+    bot.price;
+
+
+    stockInput.value =
+    bot.stock;
+
+
+    inviteInput.value =
+    bot.invite || "";
+
+
+    imageInput.value =
+    bot.image || "";
+
+
+    descriptionInput.value =
+    bot.description || "";
+
+
+
+    window.scrollTo({
+
+        top:
+        0,
+
+        behavior:
+        "smooth"
+
+    });
+
+
+    showStatus(
+        "Editing bot. Press Add Bot to save changes.",
+        "success"
+    );
+
+}
+
+
+
+/* =====================================================
+   DELETE BOT
+===================================================== */
+
+
+function deleteBot(
+    id
+) {
+
+
+    const bot =
+
+    bots.find(
+
+        item =>
+        item.id ===
+        id
+
+    );
+
+
+    if (!bot) {
+
+        return;
+
+    }
+
+
+
+    const confirmed =
+
+    confirm(
+
+        `Delete "${bot.name}" from your marketplace?`
+
+    );
+
+
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+
+
+    bots =
+
+    bots.filter(
+
+        item =>
+        item.id !==
+        id
+
+    );
+
+
+    saveData();
+
+    renderBots();
+
+
+    showStatus(
+        "Bot deleted.",
+        "success"
+    );
+
+}
+
+
+
+/* =====================================================
+   CLEAR FORM
+===================================================== */
+
+
+function clearForm() {
+
+
+    editingId =
+    null;
+
+
+    nameInput.value =
+    "";
+
+
+    priceInput.value =
+    "";
+
+
+    stockInput.value =
+    "";
+
+
+    inviteInput.value =
+    "";
+
+
+    imageInput.value =
+    "";
+
+
+    descriptionInput.value =
+    "";
+
+}
+
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+
+function showStatus(
+    message,
+    type
+) {
+
+
+    statusBox.textContent =
+    message;
+
+
+    statusBox.className =
+
+    "status " +
+
+    type;
+
+
+    setTimeout(
+
+        () => {
+
+            statusBox.className =
+            "status";
+
+        },
+
+        3000
+
+    );
+
+}
+
+
+
+/* =====================================================
+   SECURITY
+===================================================== */
+
+
+function escapeHTML(
+    value
+) {
+
+
+    return String(
+        value
+    )
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+
+/* =====================================================
+   START
+===================================================== */
+
+
+renderBots();
 
 
 </script>
