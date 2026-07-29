@@ -1,4 +1,4 @@
-```html id="1b0l5s"
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,427 +6,90 @@
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<title>Owner Panel | Discord Board Marketplace</title>
-
+<title>Owner Panel</title>
 
 <style>
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-    background:
-    #0b0d12;
-
-    color:
-    white;
-
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0d12;
+    color: white;
 }
-
-
-/* NAVBAR */
-
-nav {
-
-    padding:
-    18px 7%;
-
-    display:
-    flex;
-
-    justify-content:
-    space-between;
-
-    align-items:
-    center;
-
-    background:
-    #11141c;
-
-    border-bottom:
-    1px solid #242936;
-
-}
-
-
-.logo {
-
-    color:
-    #5865f2;
-
-    font-size:
-    21px;
-
-    font-weight:
-    bold;
-
-}
-
-
-.logout {
-
-    color:
-    #999eac;
-
-    text-decoration:
-    none;
-
-}
-
-
-/* CONTAINER */
 
 .container {
-
-    max-width:
-    1100px;
-
-    margin:
-    50px auto;
-
-    padding:
-    20px;
-
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
 }
-
 
 h1 {
-
-    margin-bottom:
-    10px;
-
+    color: #5865f2;
 }
 
-
-.subtitle {
-
-    color:
-    #999eac;
-
-    margin-bottom:
-    35px;
-
+.panel {
+    background: #11141c;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #242936;
+    margin-bottom: 25px;
 }
 
-
-/* STATS */
-
-.stats {
-
-    display:
-    grid;
-
-    grid-template-columns:
-    repeat(3, 1fr);
-
-    gap:
-    20px;
-
-    margin-bottom:
-    35px;
-
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background: #0b0d12;
+    color: white;
+    border: 1px solid #303542;
+    border-radius: 8px;
 }
-
-
-.stat {
-
-    padding:
-    25px;
-
-    background:
-    #11141c;
-
-    border:
-    1px solid #242936;
-
-    border-radius:
-    14px;
-
-}
-
-
-.stat h3 {
-
-    color:
-    #999eac;
-
-    font-size:
-    14px;
-
-    margin-bottom:
-    10px;
-
-}
-
-
-.stat strong {
-
-    font-size:
-    30px;
-
-    color:
-    #5865f2;
-
-}
-
-
-/* ADD BOT */
-
-.add-box {
-
-    padding:
-    30px;
-
-    margin-bottom:
-    30px;
-
-    background:
-    #11141c;
-
-    border:
-    1px solid #242936;
-
-    border-radius:
-    16px;
-
-}
-
-
-.add-box h2 {
-
-    margin-bottom:
-    20px;
-
-}
-
-
-.form-grid {
-
-    display:
-    grid;
-
-    grid-template-columns:
-    2fr 1fr 1fr;
-
-    gap:
-    15px;
-
-}
-
-
-input {
-
-    width:
-    100%;
-
-    padding:
-    13px;
-
-    background:
-    #0b0d12;
-
-    border:
-    1px solid #303542;
-
-    border-radius:
-    8px;
-
-    color:
-    white;
-
-}
-
 
 button {
-
-    padding:
-    13px;
-
-    border:
-    none;
-
-    border-radius:
-    8px;
-
-    background:
-    #5865f2;
-
-    color:
-    white;
-
-    font-weight:
-    bold;
-
-    cursor:
-    pointer;
-
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #5865f2;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 5px;
 }
-
 
 button:hover {
-
-    background:
-    #4752c4;
-
+    background: #4752c4;
 }
-
-
-/* BOT LIST */
-
-.bot-list {
-
-    display:
-    grid;
-
-    gap:
-    15px;
-
-}
-
 
 .bot {
-
-    display:
-    flex;
-
-    justify-content:
-    space-between;
-
-    align-items:
-    center;
-
-    padding:
-    22px;
-
-    background:
-    #11141c;
-
-    border:
-    1px solid #242936;
-
-    border-radius:
-    14px;
-
+    padding: 20px;
+    margin-top: 15px;
+    background: #0b0d12;
+    border: 1px solid #242936;
+    border-radius: 12px;
 }
 
-
-.bot-info h3 {
-
-    margin-bottom:
-    8px;
-
+.bot h3 {
+    margin-top: 0;
 }
 
-
-.bot-info p {
-
-    color:
-    #999eac;
-
+.stock {
+    color: #55d68a;
 }
 
-
-.actions {
-
-    display:
-    flex;
-
-    gap:
-    8px;
-
-    flex-wrap:
-    wrap;
-
+.hidden {
+    color: #ff6868;
 }
-
-
-.restock {
-
-    background:
-    #2d9d78;
-
-}
-
-
-.hide {
-
-    background:
-    #555b6e;
-
-}
-
 
 .delete {
-
-    background:
-    #d84b4b;
-
+    background: #d64545;
 }
 
-
-.empty {
-
-    padding:
-    40px;
-
-    text-align:
-    center;
-
-    color:
-    #999eac;
-
-}
-
-
-/* MOBILE */
-
-@media
-(max-width: 800px) {
-
-
-    .stats {
-
-        grid-template-columns:
-        1fr;
-
-    }
-
-
-    .form-grid {
-
-        grid-template-columns:
-        1fr;
-
-    }
-
-
-    .bot {
-
-        flex-direction:
-        column;
-
-        align-items:
-        flex-start;
-
-        gap:
-        20px;
-
-    }
-
+.restock {
+    background: #2d9d78;
 }
 
 </style>
@@ -437,130 +100,31 @@ button:hover {
 <body>
 
 
-<nav>
-
-
-<div class="logo">
-
-Discord Board Marketplace
-
-</div>
-
-
-<a
-href="index.html"
-class="logout"
->
-
-← Back to Website
-
-</a>
-
-
-</nav>
-
-
-<main
-class="container"
->
+<div class="container">
 
 
 <h1>
-
-Owner Panel
-
+Owner Bot Manager
 </h1>
 
 
-<p class="subtitle">
-
-Manage your Discord bots and marketplace inventory.
-
-</p>
-
-
-
-<!-- STATS -->
-
-
-<section
-class="stats"
->
-
-
-<div class="stat">
-
-<h3>
-Total Bots
-</h3>
-
-<strong
-id="totalBots"
->
-0
-</strong>
-
-</div>
-
-
-<div class="stat">
-
-<h3>
-Available Stock
-</h3>
-
-<strong
-id="totalStock"
->
-0
-</strong>
-
-</div>
-
-
-<div class="stat">
-
-<h3>
-Hidden Bots
-</h3>
-
-<strong
-id="hiddenBots"
->
-0
-</strong>
-
-</div>
-
-
-</section>
-
-
-
-<!-- ADD BOT -->
-
-
-<section
-class="add-box"
->
+<div class="panel">
 
 
 <h2>
-
 Add New Bot
-
 </h2>
-
-
-<div
-class="form-grid"
->
 
 
 <input
 id="botName"
-type="text"
-placeholder="Bot name"
+placeholder="Bot Name"
+>
+
+
+<input
+id="botId"
+placeholder="Bot ID"
 >
 
 
@@ -579,11 +143,23 @@ placeholder="Stock"
 >
 
 
+<textarea
+id="botDescription"
+placeholder="Bot Description"
+></textarea>
+
+
+<input
+id="botImage"
+placeholder="Image URL"
+>
+
+
 <button
 onclick="addBot()"
 >
 
-Add Bot
+➕ Add Bot
 
 </button>
 
@@ -591,32 +167,25 @@ Add Bot
 </div>
 
 
-</section>
+<div class="panel">
 
 
-
-<!-- BOT LIST -->
-
-
-<section
-class="bot-list"
-id="botList"
->
+<h2>
+Your Bots
+</h2>
 
 
-</section>
+<div id="botList">
+</div>
 
 
-</main>
+</div>
 
+
+</div>
 
 
 <script>
-
-
-// ======================================
-// DATABASE
-// ======================================
 
 
 let bots =
@@ -624,23 +193,18 @@ let bots =
 JSON.parse(
 
 localStorage.getItem(
-"ownerBots"
+"marketplaceBots"
 )
 
 ) || [];
 
 
 
-// ======================================
-// SAVE
-// ======================================
-
-
 function saveBots() {
 
     localStorage.setItem(
 
-        "ownerBots",
+        "marketplaceBots",
 
         JSON.stringify(
             bots
@@ -652,11 +216,6 @@ function saveBots() {
 
 
 
-// ======================================
-// ADD BOT
-// ======================================
-
-
 function addBot() {
 
 
@@ -665,6 +224,16 @@ function addBot() {
     document
     .getElementById(
         "botName"
+    )
+    .value
+    .trim();
+
+
+    const id =
+
+    document
+    .getElementById(
+        "botId"
     )
     .value
     .trim();
@@ -696,21 +265,37 @@ function addBot() {
     );
 
 
+    const description =
+
+    document
+    .getElementById(
+        "botDescription"
+    )
+    .value
+    .trim();
+
+
+    const image =
+
+    document
+    .getElementById(
+        "botImage"
+    )
+    .value
+    .trim();
+
+
+
     if (
-
         !name ||
-
-        !price ||
-
+        !id ||
+        price <= 0 ||
         stock < 0
-
     ) {
 
-
         alert(
-            "Please enter valid information."
+            "Please fill in all required fields."
         );
-
 
         return;
 
@@ -718,10 +303,13 @@ function addBot() {
 
 
 
-    bots.push({
+    const bot = {
 
         id:
         Date.now(),
+
+        botId:
+        id,
 
         name:
         name,
@@ -732,11 +320,20 @@ function addBot() {
         stock:
         stock,
 
+        description:
+        description,
+
+        image:
+        image,
+
         hidden:
         false
 
-    });
+    };
 
+
+
+    bots.push(bot);
 
 
     saveBots();
@@ -745,9 +342,25 @@ function addBot() {
     renderBots();
 
 
+    clearForm();
+
+}
+
+
+
+function clearForm() {
+
+
     document
     .getElementById(
         "botName"
+    )
+    .value = "";
+
+
+    document
+    .getElementById(
+        "botId"
     )
     .value = "";
 
@@ -765,13 +378,22 @@ function addBot() {
     )
     .value = "";
 
+
+    document
+    .getElementById(
+        "botDescription"
+    )
+    .value = "";
+
+
+    document
+    .getElementById(
+        "botImage"
+    )
+    .value = "";
+
 }
 
-
-
-// ======================================
-// RESTOCK
-// ======================================
 
 
 function restockBot(
@@ -791,11 +413,7 @@ function restockBot(
 
 
     if (
-
-        !amount ||
-
         amount <= 0
-
     ) {
 
         return;
@@ -827,11 +445,6 @@ function restockBot(
 
 }
 
-
-
-// ======================================
-// HIDE / SHOW
-// ======================================
 
 
 function toggleBot(
@@ -866,26 +479,18 @@ function toggleBot(
 
 
 
-// ======================================
-// DELETE
-// ======================================
-
-
 function deleteBot(
     id
 ) {
 
 
-    const confirmDelete =
+    if (
 
-    confirm(
+        !confirm(
+            "Delete this bot?"
+        )
 
-        "Are you sure you want to delete this bot?"
-
-    );
-
-
-    if (!confirmDelete) {
+    ) {
 
         return;
 
@@ -896,8 +501,8 @@ function deleteBot(
 
     bots.filter(
 
-        bot =>
-        bot.id !== id
+        item =>
+        item.id !== id
 
     );
 
@@ -909,11 +514,6 @@ function deleteBot(
 
 }
 
-
-
-// ======================================
-// RENDER
-// ======================================
 
 
 function renderBots() {
@@ -934,17 +534,11 @@ function renderBots() {
         bots.length === 0
     ) {
 
+        list.innerHTML =
 
-        list.innerHTML = `
+        "<p>No bots available.</p>";
 
-        <div class="empty">
-
-        No bots added yet.
-
-        </div>
-
-        `;
-
+        return;
 
     }
 
@@ -969,55 +563,72 @@ function renderBots() {
 
             div.innerHTML = `
 
-            <div class="bot-info">
+            <h3>
+            ${bot.name}
+            </h3>
 
-                <h3>
-                ${bot.name}
-                </h3>
+            <p>
+            Bot ID: ${bot.botId}
+            </p>
 
-                <p>
-                €${bot.price.toFixed(2)}
-                · Stock: ${bot.stock}
-                · ${bot.hidden ? "Hidden" : "Visible"}
-                </p>
+            <p>
+            Price: €${bot.price.toFixed(2)}
+            </p>
 
-            </div>
+            <p class="stock">
+            Stock: ${bot.stock}
+            </p>
 
+            <p>
+            ${bot.description}
+            </p>
 
-            <div class="actions">
+            <p class="${
+                bot.hidden
+                ? "hidden"
+                : "stock"
+            }">
 
+            ${
+                bot.hidden
+                ? "Hidden from marketplace"
+                : "Visible in marketplace"
+            }
 
-                <button
-                class="restock"
-                onclick="restockBot(${bot.id})"
-                >
-
-                + Restock
-
-                </button>
-
-
-                <button
-                class="hide"
-                onclick="toggleBot(${bot.id})"
-                >
-
-                ${bot.hidden ? "Show" : "Hide"}
-
-                </button>
+            </p>
 
 
-                <button
-                class="delete"
-                onclick="deleteBot(${bot.id})"
-                >
+            <button
+            class="restock"
+            onclick="restockBot(${bot.id})"
+            >
 
-                Delete
+            🔄 Restock
 
-                </button>
+            </button>
 
 
-            </div>
+            <button
+            onclick="toggleBot(${bot.id})"
+            >
+
+            ${
+                bot.hidden
+                ? "Show Bot"
+                : "Hide Bot"
+            }
+
+            </button>
+
+
+            <button
+            class="delete"
+            onclick="deleteBot(${bot.id})"
+            >
+
+            🗑️ Delete
+
+            </button>
 
             `;
 
@@ -1030,74 +641,7 @@ function renderBots() {
 
     );
 
-
-
-    updateStats();
-
 }
-
-
-
-// ======================================
-// STATS
-// ======================================
-
-
-function updateStats() {
-
-
-    document
-    .getElementById(
-        "totalBots"
-    )
-    .textContent =
-
-    bots.length;
-
-
-
-    document
-    .getElementById(
-        "totalStock"
-    )
-    .textContent =
-
-    bots.reduce(
-
-        (
-            total,
-            bot
-        ) =>
-
-        total +
-        bot.stock,
-
-        0
-
-    );
-
-
-
-    document
-    .getElementById(
-        "hiddenBots"
-    )
-    .textContent =
-
-    bots.filter(
-
-        bot =>
-        bot.hidden
-
-    ).length;
-
-}
-
-
-
-// ======================================
-// START
-// ======================================
 
 
 renderBots();
@@ -1110,3 +654,4 @@ renderBots();
 
 </html>
 ```
+
