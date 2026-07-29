@@ -1,0 +1,286 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Order Confirmed | Discord Board Marketplace</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0d12;
+    color: white;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 750px;
+    margin: 70px auto;
+    padding: 20px;
+}
+
+.success {
+    padding: 45px 30px;
+    text-align: center;
+    background: #11141c;
+    border: 1px solid #242936;
+    border-radius: 20px;
+}
+
+.icon {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    color: #999eac;
+    margin-bottom: 30px;
+}
+
+.order-box {
+    padding: 25px;
+    margin-top: 25px;
+    text-align: left;
+    background: #0b0d12;
+    border-radius: 12px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid #242936;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.label {
+    color: #999eac;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.button {
+    flex: 1;
+    padding: 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.primary {
+    background: #5865f2;
+    color: white;
+}
+
+.secondary {
+    background: #242936;
+    color: white;
+}
+
+@media (max-width: 600px) {
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<main class="container">
+
+
+<section class="success">
+
+
+<div class="icon">
+✅
+</div>
+
+
+<h1>
+Order Submitted!
+</h1>
+
+
+<p class="subtitle">
+Thank you for your order.
+Your payment will be reviewed by our team.
+</p>
+
+
+<div class="order-box">
+
+
+<div class="row">
+
+<span class="label">
+Order ID
+</span>
+
+<strong id="orderId">
+Loading...
+</strong>
+
+</div>
+
+
+<div class="row">
+
+<span class="label">
+Payment Method
+</span>
+
+<strong id="paymentMethod">
+Loading...
+</strong>
+
+</div>
+
+
+<div class="row">
+
+<span class="label">
+Total
+</span>
+
+<strong>
+€<span id="orderTotal">
+0.00
+</span>
+</strong>
+
+</div>
+
+
+<div class="row">
+
+<span class="label">
+Status
+</span>
+
+<strong>
+Pending Review
+</strong>
+
+</div>
+
+
+</div>
+
+
+<div class="buttons">
+
+
+<a
+href="index.html"
+class="button primary"
+>
+Back to Home
+</a>
+
+
+<a
+href="support.html"
+class="button secondary"
+>
+Contact Support
+</a>
+
+
+</div>
+
+
+</section>
+
+
+</main>
+
+
+<script>
+
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+
+const payment =
+params.get("payment")
+|| "Not Selected";
+
+
+const orderId =
+params.get("order")
+|| "DBM-" +
+Date.now();
+
+
+const total =
+params.get("total")
+|| "0.00";
+
+
+document.getElementById(
+"paymentMethod"
+).textContent =
+payment;
+
+
+document.getElementById(
+"orderId"
+).textContent =
+orderId;
+
+
+document.getElementById(
+"orderTotal"
+).textContent =
+Number(total).toFixed(2);
+
+
+</script>
+
+
+</body>
+
+</html>
+```
