@@ -1,0 +1,329 @@
+```html
+<!-- PAYMENT METHODS SECTION -->
+
+<section class="payment-partners">
+
+    <div class="payment-container">
+
+        <span class="section-label">
+            SECURE PAYMENTS
+        </span>
+
+        <h2>
+            Simple & Secure Payments
+        </h2>
+
+        <p class="payment-description">
+            Choose your preferred payment method and
+            complete your order securely.
+        </p>
+
+
+        <div class="payment-cards">
+
+
+            <!-- PAYPAL -->
+
+            <a
+                href="https://www.paypal.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="payment-card paypal-card"
+            >
+
+                <div class="payment-icon">
+                    P
+                </div>
+
+                <div class="payment-content">
+
+                    <h3>
+                        PayPal
+                    </h3>
+
+                    <p>
+                        Pay securely using PayPal.
+                    </p>
+
+                    <span class="payment-link">
+                        Visit PayPal →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- REVOLUT -->
+
+            <a
+                href="https://www.revolut.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="payment-card revolut-card"
+            >
+
+                <div class="payment-icon">
+                    R
+                </div>
+
+                <div class="payment-content">
+
+                    <h3>
+                        Revolut
+                    </h3>
+
+                    <p>
+                        Use Revolut for fast and convenient
+                        payments.
+                    </p>
+
+                    <span class="payment-link">
+                        Visit Revolut →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+
+.payment-partners {
+
+    padding:
+    100px 20px;
+
+    background:
+    #0b0d12;
+
+    border-top:
+    1px solid #242936;
+
+}
+
+
+.payment-container {
+
+    max-width:
+    1000px;
+
+    margin:
+    auto;
+
+    text-align:
+    center;
+
+}
+
+
+.section-label {
+
+    display:
+    inline-block;
+
+    margin-bottom:
+    15px;
+
+    color:
+    #5865f2;
+
+    font-size:
+    13px;
+
+    font-weight:
+    bold;
+
+    letter-spacing:
+    2px;
+
+}
+
+
+.payment-container h2 {
+
+    font-size:
+    38px;
+
+    margin-bottom:
+    15px;
+
+}
+
+
+.payment-description {
+
+    max-width:
+    600px;
+
+    margin:
+    0 auto 45px;
+
+    color:
+    #999eac;
+
+    line-height:
+    1.7;
+
+}
+
+
+.payment-cards {
+
+    display:
+    grid;
+
+    grid-template-columns:
+    repeat(2, 1fr);
+
+    gap:
+    25px;
+
+}
+
+
+.payment-card {
+
+    display:
+    flex;
+
+    align-items:
+    center;
+
+    gap:
+    25px;
+
+    padding:
+    30px;
+
+    text-align:
+    left;
+
+    background:
+    #11141c;
+
+    border:
+    1px solid #242936;
+
+    border-radius:
+    18px;
+
+    text-decoration:
+    none;
+
+    color:
+    white;
+
+    transition:
+    0.25s;
+
+}
+
+
+.payment-card:hover {
+
+    transform:
+    translateY(-5px);
+
+    border-color:
+    #5865f2;
+
+}
+
+
+.payment-icon {
+
+    width:
+    65px;
+
+    height:
+    65px;
+
+    display:
+    flex;
+
+    align-items:
+    center;
+
+    justify-content:
+    center;
+
+    flex-shrink:
+    0;
+
+    border-radius:
+    15px;
+
+    background:
+    #242936;
+
+    font-size:
+    28px;
+
+    font-weight:
+    bold;
+
+}
+
+
+.payment-content h3 {
+
+    margin-bottom:
+    8px;
+
+    font-size:
+    21px;
+
+}
+
+
+.payment-content p {
+
+    margin-bottom:
+    12px;
+
+    color:
+    #999eac;
+
+}
+
+
+.payment-link {
+
+    color:
+    #5865f2;
+
+    font-weight:
+    bold;
+
+}
+
+
+@media
+(max-width: 700px) {
+
+    .payment-cards {
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .payment-card {
+
+        align-items:
+        flex-start;
+
+    }
+
+}
+
+</style>
+```
