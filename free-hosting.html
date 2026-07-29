@@ -11,7 +11,7 @@ name="viewport"
 content="width=device-width, initial-scale=1.0"
 >
 
-<title>Free Hosting Options</title>
+<title>Free Hosting | Discord Board Marketplace</title>
 
 <style>
 
@@ -22,88 +22,314 @@ content="width=device-width, initial-scale=1.0"
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #0b0d12;
-    color: white;
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    background:
+    #0b0d12;
+
+    color:
+    white;
+
 }
 
-.container {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 20px;
+
+nav {
+
+    padding:
+    18px 8%;
+
+    display:
+    flex;
+
+    align-items:
+    center;
+
+    justify-content:
+    space-between;
+
+    background:
+    #11141c;
+
+    border-bottom:
+    1px solid #242936;
+
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 15px;
+
+.logo {
+
+    color:
+    #5865f2;
+
+    font-size:
+    21px;
+
+    font-weight:
+    bold;
+
+    text-decoration:
+    none;
+
 }
 
-.subtitle {
-    text-align: center;
-    color: #999eac;
-    margin-bottom: 45px;
-}
-
-.hosting-grid {
-    display: grid;
-    grid-template-columns:
-    repeat(3, 1fr);
-    gap: 20px;
-}
-
-.card {
-    padding: 30px;
-    background: #11141c;
-    border: 1px solid #242936;
-    border-radius: 15px;
-}
-
-.card h2 {
-    margin-bottom: 15px;
-}
-
-.card p {
-    color: #999eac;
-    line-height: 1.6;
-    margin-bottom: 25px;
-}
-
-.button {
-    display: block;
-    padding: 13px;
-    background: #5865f2;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-.button:hover {
-    background: #4752c4;
-}
 
 .back {
-    display: block;
-    margin-top: 40px;
-    text-align: center;
-    color: #5865f2;
-    text-decoration: none;
+
+    color:
+    #d5d7df;
+
+    text-decoration:
+    none;
+
 }
 
-.warning {
-    margin-top: 35px;
-    padding: 20px;
-    background: #171921;
-    border-radius: 10px;
-    color: #999eac;
-    line-height: 1.6;
+
+.container {
+
+    max-width:
+    1100px;
+
+    margin:
+    60px auto;
+
+    padding:
+    20px;
+
 }
 
-@media (max-width: 800px) {
+
+.hero {
+
+    text-align:
+    center;
+
+    margin-bottom:
+    50px;
+
+}
+
+
+.hero h1 {
+
+    font-size:
+    42px;
+
+    margin-bottom:
+    15px;
+
+}
+
+
+.hero p {
+
+    max-width:
+    700px;
+
+    margin:
+    auto;
+
+    color:
+    #999eac;
+
+    line-height:
+    1.7;
+
+}
+
+
+.hosting-grid {
+
+    display:
+    grid;
+
+    grid-template-columns:
+    repeat(3, 1fr);
+
+    gap:
+    25px;
+
+}
+
+
+.card {
+
+    padding:
+    30px;
+
+    background:
+    #11141c;
+
+    border:
+    1px solid #242936;
+
+    border-radius:
+    18px;
+
+    transition:
+    0.25s;
+
+}
+
+
+.card:hover {
+
+    transform:
+    translateY(-5px);
+
+    border-color:
+    #5865f2;
+
+}
+
+
+.card h2 {
+
+    margin-bottom:
+    12px;
+
+}
+
+
+.type {
+
+    display:
+    inline-block;
+
+    margin-bottom:
+    20px;
+
+    padding:
+    6px 10px;
+
+    background:
+    #242936;
+
+    border-radius:
+    20px;
+
+    color:
+    #aeb2c0;
+
+    font-size:
+    12px;
+
+}
+
+
+.card p {
+
+    color:
+    #999eac;
+
+    line-height:
+    1.6;
+
+    margin-bottom:
+    20px;
+
+}
+
+
+.features {
+
+    list-style:
+    none;
+
+    margin-bottom:
+    25px;
+
+}
+
+
+.features li {
+
+    padding:
+    8px 0;
+
+    color:
+    #c3c6d0;
+
+    border-bottom:
+    1px solid #242936;
+
+}
+
+
+.button {
+
+    display:
+    block;
+
+    padding:
+    13px;
+
+    background:
+    #5865f2;
+
+    color:
+    white;
+
+    text-decoration:
+    none;
+
+    text-align:
+    center;
+
+    border-radius:
+    8px;
+
+    font-weight:
+    bold;
+
+}
+
+
+.button:hover {
+
+    background:
+    #4752c4;
+
+}
+
+
+.note {
+
+    margin-top:
+    40px;
+
+    padding:
+    20px;
+
+    background:
+    #11141c;
+
+    border:
+    1px solid #242936;
+
+    border-radius:
+    12px;
+
+    color:
+    #999eac;
+
+    line-height:
+    1.7;
+
+}
+
+
+@media
+(max-width: 850px) {
 
     .hosting-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+        1fr;
+
     }
 
 }
@@ -116,34 +342,122 @@ h1 {
 <body>
 
 
-<main class="container">
+<nav>
+
+
+<a
+href="index.html"
+class="logo"
+>
+
+Discord Board Marketplace
+
+</a>
+
+
+<a
+href="hosting.html"
+class="back"
+>
+
+← Back to Hosting
+
+</a>
+
+
+</nav>
+
+
+<main
+class="container"
+>
+
+
+<section
+class="hero"
+>
 
 
 <h1>
-Free Discord Bot Hosting Options
+
+🆓 Free Hosting Options
+
 </h1>
 
 
-<p class="subtitle">
-Explore external hosting platforms that may offer
-free or trial plans for running applications and bots.
+<p>
+
+These are external hosting platforms that may
+offer free resources or free tiers.
+Check each provider's current limits before
+deploying your Discord bot.
+
 </p>
 
 
-<section class="hosting-grid">
+</section>
 
 
-<div class="card">
+<section
+class="hosting-grid"
+>
+
+
+<!-- RENDER -->
+
+
+<div
+class="card"
+>
+
 
 <h2>
+
 Render
+
 </h2>
 
+
+<span
+class="type"
+>
+
+Free Tier
+
+</span>
+
+
 <p>
-Cloud platform for deploying applications and
-services. Check the current free plan and limitations
-before deploying a Discord bot.
+
+A cloud platform that supports web services
+and static sites. Free web services may
+spin down when idle.
+
 </p>
+
+
+<ul
+class="features"
+>
+
+
+<li>
+Node.js support
+</li>
+
+
+<li>
+Free web service tier
+</li>
+
+
+<li>
+Automatic deployments
+</li>
+
+
+</ul>
+
 
 <a
 href="https://render.com/"
@@ -151,56 +465,152 @@ target="_blank"
 rel="noopener noreferrer"
 class="button"
 >
+
 Visit Render
+
 </a>
+
 
 </div>
 
 
-<div class="card">
+<!-- KOYEB -->
 
-<h2>
-Railway
-</h2>
 
-<p>
-Cloud deployment platform with simple project
-deployment. Availability and pricing of free usage
-may change.
-</p>
-
-<a
-href="https://railway.com/"
-target="_blank"
-rel="noopener noreferrer"
-class="button"
+<div
+class="card"
 >
-Visit Railway
-</a>
 
-</div>
-
-
-<div class="card">
 
 <h2>
+
 Koyeb
+
 </h2>
 
+
+<span
+class="type"
+>
+
+Free Instance
+
+</span>
+
+
 <p>
-Cloud platform for deploying applications and
-services. Review the current free resources and
-usage limits.
+
+A cloud platform with a free instance
+that can run applications and services.
+
 </p>
 
+
+<ul
+class="features"
+>
+
+
+<li>
+512 MB RAM
+</li>
+
+
+<li>
+0.1 vCPU
+</li>
+
+
+<li>
+2 GB SSD
+</li>
+
+
+</ul>
+
+
 <a
-href="https://discord.gg/DbDpVjkcA"
+href="https://www.koyeb.com/"
 target="_blank"
 rel="noopener noreferrer"
 class="button"
 >
+
 Visit Koyeb
+
 </a>
+
+
+</div>
+
+
+<!-- ORACLE -->
+
+
+<div
+class="card"
+>
+
+
+<h2>
+
+Oracle Cloud
+
+</h2>
+
+
+<span
+class="type"
+>
+
+Always Free
+
+</span>
+
+
+<p>
+
+Oracle Cloud offers Always Free resources
+that can be used for small applications
+and virtual machines.
+
+</p>
+
+
+<ul
+class="features"
+>
+
+
+<li>
+Always Free resources
+</li>
+
+
+<li>
+Virtual machines
+</li>
+
+
+<li>
+More advanced setup
+</li>
+
+
+</ul>
+
+
+<a
+href="https://www.oracle.com/cloud/free/"
+target="_blank"
+rel="noopener noreferrer"
+class="button"
+>
+
+Visit Oracle Cloud
+
+</a>
+
 
 </div>
 
@@ -208,26 +618,26 @@ Visit Koyeb
 </section>
 
 
-<div class="warning">
+<div
+class="note"
+>
+
 
 <strong>
 Important:
 </strong>
 
-Free hosting plans can have usage limits,
-sleep periods, or changing policies.
+
+Free hosting providers have different limits,
+sleep policies and availability.
+Discord Board Marketplace does not operate
+these external services.
+
 Always check the provider's current terms
-before deploying your Discord bot.
+before deploying your bot.
+
 
 </div>
-
-
-<a
-href="hosting.html"
-class="back"
->
-← Back to Hosting
-</a>
 
 
 </main>
