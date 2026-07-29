@@ -3,7 +3,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta
@@ -16,81 +15,41 @@ content="width=device-width, initial-scale=1.0"
 <style>
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-
     min-height: 100vh;
-
     font-family: Arial, sans-serif;
-
     color: white;
 
     background:
-
     radial-gradient(
-        circle at top left,
+        circle at 10% 10%,
         rgba(88,101,242,0.25),
-        transparent 35%
+        transparent 30%
     ),
 
     radial-gradient(
-        circle at bottom right,
+        circle at 90% 90%,
         rgba(139,92,246,0.20),
-        transparent 35%
+        transparent 30%
     ),
 
     #05060b;
 
-    padding: 40px 20px;
-
+    padding: 30px 20px;
 }
 
 .container {
-
     max-width: 1200px;
-
     margin: auto;
-
-}
-
-header {
-
-    text-align: center;
-
-    margin-bottom: 50px;
-
-}
-
-header h1 {
-
-    font-size: 48px;
-
-    margin-bottom: 12px;
-
-}
-
-header h1 span {
-
-    color: #7280ff;
-
-}
-
-header p {
-
-    color:
-    rgba(255,255,255,0.55);
-
 }
 
 .back {
-
     display: inline-block;
-
-    margin-bottom: 30px;
 
     padding: 12px 18px;
 
@@ -103,10 +62,30 @@ header p {
 
     border:
     1px solid
-    rgba(255,255,255,0.1);
+    rgba(255,255,255,0.12);
 
-    border-radius: 10px;
+    border-radius: 12px;
 
+    margin-bottom: 40px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+header h1 span {
+    color: #7280ff;
+}
+
+header p {
+    color:
+    rgba(255,255,255,0.55);
 }
 
 .bot-grid {
@@ -116,11 +95,10 @@ header p {
     grid-template-columns:
     repeat(
         auto-fit,
-        minmax(250px, 1fr)
+        minmax(260px, 1fr)
     );
 
     gap: 25px;
-
 }
 
 .bot-card {
@@ -140,7 +118,8 @@ header p {
     blur(25px);
 
     transition:
-    0.35s;
+    transform 0.3s,
+    box-shadow 0.3s;
 
 }
 
@@ -149,11 +128,8 @@ header p {
     transform:
     translateY(-8px);
 
-    border-color:
-    rgba(114,128,255,0.5);
-
     box-shadow:
-    0 20px 60px
+    0 25px 60px
     rgba(0,0,0,0.4);
 
 }
@@ -162,7 +138,7 @@ header p {
 
     width: 100%;
 
-    height: 220px;
+    height: 210px;
 
     object-fit: cover;
 
@@ -173,7 +149,7 @@ header p {
 
 .bot-content {
 
-    padding: 25px;
+    padding: 24px;
 
 }
 
@@ -188,9 +164,9 @@ header p {
     color:
     rgba(255,255,255,0.55);
 
-    line-height: 1.6;
+    line-height: 1.5;
 
-    min-height: 50px;
+    min-height: 48px;
 
 }
 
@@ -200,19 +176,21 @@ header p {
 
     font-weight: bold;
 
-    color: #8d98ff;
+    color:
+    #8d98ff;
 
-    margin:
-    20px 0 10px;
+    margin-top: 20px;
 
 }
 
 .stock {
 
-    color:
-    #72ffb5;
+    margin-top: 8px;
 
     margin-bottom: 18px;
+
+    color:
+    #72ffb5;
 
 }
 
@@ -248,9 +226,9 @@ button,
 
     cursor: pointer;
 
-    text-decoration: none;
-
     text-align: center;
+
+    text-decoration: none;
 
 }
 
@@ -267,7 +245,7 @@ button,
 
 .cart:disabled {
 
-    opacity: 0.4;
+    opacity: 0.35;
 
     cursor: not-allowed;
 
@@ -291,16 +269,6 @@ button,
 
     color:
     rgba(255,255,255,0.5);
-
-}
-
-@media(max-width:600px) {
-
-    header h1 {
-
-        font-size: 35px;
-
-    }
 
 }
 
@@ -337,7 +305,7 @@ Bots
 
 <p>
 
-Premium Discord bots for your community.
+Discover premium Discord bots for your server.
 
 </p>
 
@@ -361,10 +329,10 @@ class="bot-grid"
 
 /*
 ====================================================
-IMPORTANT
+PUBLIC BOTS PAGE
 
-This MUST be the same key used
-inside owner-panel.html
+There is NO Owner Panel link here.
+There is NO Owner Panel button here.
 ====================================================
 */
 
@@ -397,7 +365,9 @@ function escapeHTML(
 value
 ) {
 
-    return String(value || "")
+    return String(
+        value || ""
+    )
 
     .replace(
         /&/g,
@@ -435,7 +405,6 @@ function renderBots() {
     "";
 
 
-
     if (
         bots.length === 0
     ) {
@@ -452,7 +421,7 @@ function renderBots() {
         <br>
 
         <p>
-        New bots will appear here soon.
+        Check back soon for new Discord bots.
         </p>
 
         </div>
@@ -482,13 +451,11 @@ function renderBots() {
             "bot-card";
 
 
-
             const image =
 
             bot.image ||
 
             "https://via.placeholder.com/600x400?text=Discord+Bot";
-
 
 
             const hasStock =
@@ -509,16 +476,13 @@ function renderBots() {
                 image
             )}"
 
-            alt="${escapeHTML(
-                bot.name
-            )}"
+            alt="Discord Bot"
+
 
             >
 
 
-            <div
-            class="bot-content"
-            >
+            <div class="bot-content">
 
 
             <h2>
@@ -530,21 +494,17 @@ function renderBots() {
             </h2>
 
 
-            <p
-            class="description"
-            >
+            <p class="description">
 
             ${escapeHTML(
                 bot.description ||
-                "Premium Discord bot."
+                "Premium Discord Bot"
             )}
 
             </p>
 
 
-            <div
-            class="price"
-            >
+            <div class="price">
 
             €${Number(
                 bot.price
@@ -553,27 +513,29 @@ function renderBots() {
             </div>
 
 
-            <div
-            class="${
+            <div class="${
                 hasStock
                 ? "stock"
                 : "stock out"
-            }"
-            >
+            }">
 
             ${
                 hasStock
-                ? "✓ In Stock: " +
-                  bot.stock
-                : "✕ Out of Stock"
+
+                ?
+
+                "✓ In Stock: " +
+                bot.stock
+
+                :
+
+                "✕ Out of Stock"
             }
 
             </div>
 
 
-            <div
-            class="actions"
-            >
+            <div class="actions">
 
 
             <button
@@ -603,14 +565,21 @@ function renderBots() {
                 ?
 
                 `<a
+
                 class="invite"
+
                 href="${escapeHTML(
                     bot.invite
                 )}"
+
                 target="_blank"
+
                 rel="noopener"
+
                 >
+
                 View
+
                 </a>`
 
                 :
@@ -632,20 +601,12 @@ function renderBots() {
                 card
             );
 
-
         }
 
     );
 
 }
 
-
-
-/*
-====================================================
-ADD TO CART
-====================================================
-*/
 
 
 function addToCart(
@@ -698,7 +659,7 @@ function addToCart(
 
     if (existing) {
 
-        existing.quantity += 1;
+        existing.quantity++;
 
     }
 
@@ -738,15 +699,12 @@ function addToCart(
     );
 
 
-
     alert(
-
-        bot.name +
-        " added to cart!"
-
+        "Added to cart!"
     );
 
 }
+
 
 
 renderBots();
