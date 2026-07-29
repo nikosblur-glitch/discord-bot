@@ -1,0 +1,1112 @@
+```html id="1b0l5s"
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>Owner Panel | Discord Board Marketplace</title>
+
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    background:
+    #0b0d12;
+
+    color:
+    white;
+
+}
+
+
+/* NAVBAR */
+
+nav {
+
+    padding:
+    18px 7%;
+
+    display:
+    flex;
+
+    justify-content:
+    space-between;
+
+    align-items:
+    center;
+
+    background:
+    #11141c;
+
+    border-bottom:
+    1px solid #242936;
+
+}
+
+
+.logo {
+
+    color:
+    #5865f2;
+
+    font-size:
+    21px;
+
+    font-weight:
+    bold;
+
+}
+
+
+.logout {
+
+    color:
+    #999eac;
+
+    text-decoration:
+    none;
+
+}
+
+
+/* CONTAINER */
+
+.container {
+
+    max-width:
+    1100px;
+
+    margin:
+    50px auto;
+
+    padding:
+    20px;
+
+}
+
+
+h1 {
+
+    margin-bottom:
+    10px;
+
+}
+
+
+.subtitle {
+
+    color:
+    #999eac;
+
+    margin-bottom:
+    35px;
+
+}
+
+
+/* STATS */
+
+.stats {
+
+    display:
+    grid;
+
+    grid-template-columns:
+    repeat(3, 1fr);
+
+    gap:
+    20px;
+
+    margin-bottom:
+    35px;
+
+}
+
+
+.stat {
+
+    padding:
+    25px;
+
+    background:
+    #11141c;
+
+    border:
+    1px solid #242936;
+
+    border-radius:
+    14px;
+
+}
+
+
+.stat h3 {
+
+    color:
+    #999eac;
+
+    font-size:
+    14px;
+
+    margin-bottom:
+    10px;
+
+}
+
+
+.stat strong {
+
+    font-size:
+    30px;
+
+    color:
+    #5865f2;
+
+}
+
+
+/* ADD BOT */
+
+.add-box {
+
+    padding:
+    30px;
+
+    margin-bottom:
+    30px;
+
+    background:
+    #11141c;
+
+    border:
+    1px solid #242936;
+
+    border-radius:
+    16px;
+
+}
+
+
+.add-box h2 {
+
+    margin-bottom:
+    20px;
+
+}
+
+
+.form-grid {
+
+    display:
+    grid;
+
+    grid-template-columns:
+    2fr 1fr 1fr;
+
+    gap:
+    15px;
+
+}
+
+
+input {
+
+    width:
+    100%;
+
+    padding:
+    13px;
+
+    background:
+    #0b0d12;
+
+    border:
+    1px solid #303542;
+
+    border-radius:
+    8px;
+
+    color:
+    white;
+
+}
+
+
+button {
+
+    padding:
+    13px;
+
+    border:
+    none;
+
+    border-radius:
+    8px;
+
+    background:
+    #5865f2;
+
+    color:
+    white;
+
+    font-weight:
+    bold;
+
+    cursor:
+    pointer;
+
+}
+
+
+button:hover {
+
+    background:
+    #4752c4;
+
+}
+
+
+/* BOT LIST */
+
+.bot-list {
+
+    display:
+    grid;
+
+    gap:
+    15px;
+
+}
+
+
+.bot {
+
+    display:
+    flex;
+
+    justify-content:
+    space-between;
+
+    align-items:
+    center;
+
+    padding:
+    22px;
+
+    background:
+    #11141c;
+
+    border:
+    1px solid #242936;
+
+    border-radius:
+    14px;
+
+}
+
+
+.bot-info h3 {
+
+    margin-bottom:
+    8px;
+
+}
+
+
+.bot-info p {
+
+    color:
+    #999eac;
+
+}
+
+
+.actions {
+
+    display:
+    flex;
+
+    gap:
+    8px;
+
+    flex-wrap:
+    wrap;
+
+}
+
+
+.restock {
+
+    background:
+    #2d9d78;
+
+}
+
+
+.hide {
+
+    background:
+    #555b6e;
+
+}
+
+
+.delete {
+
+    background:
+    #d84b4b;
+
+}
+
+
+.empty {
+
+    padding:
+    40px;
+
+    text-align:
+    center;
+
+    color:
+    #999eac;
+
+}
+
+
+/* MOBILE */
+
+@media
+(max-width: 800px) {
+
+
+    .stats {
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+
+    .form-grid {
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+
+    .bot {
+
+        flex-direction:
+        column;
+
+        align-items:
+        flex-start;
+
+        gap:
+        20px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+
+<div class="logo">
+
+Discord Board Marketplace
+
+</div>
+
+
+<a
+href="index.html"
+class="logout"
+>
+
+← Back to Website
+
+</a>
+
+
+</nav>
+
+
+<main
+class="container"
+>
+
+
+<h1>
+
+Owner Panel
+
+</h1>
+
+
+<p class="subtitle">
+
+Manage your Discord bots and marketplace inventory.
+
+</p>
+
+
+
+<!-- STATS -->
+
+
+<section
+class="stats"
+>
+
+
+<div class="stat">
+
+<h3>
+Total Bots
+</h3>
+
+<strong
+id="totalBots"
+>
+0
+</strong>
+
+</div>
+
+
+<div class="stat">
+
+<h3>
+Available Stock
+</h3>
+
+<strong
+id="totalStock"
+>
+0
+</strong>
+
+</div>
+
+
+<div class="stat">
+
+<h3>
+Hidden Bots
+</h3>
+
+<strong
+id="hiddenBots"
+>
+0
+</strong>
+
+</div>
+
+
+</section>
+
+
+
+<!-- ADD BOT -->
+
+
+<section
+class="add-box"
+>
+
+
+<h2>
+
+Add New Bot
+
+</h2>
+
+
+<div
+class="form-grid"
+>
+
+
+<input
+id="botName"
+type="text"
+placeholder="Bot name"
+>
+
+
+<input
+id="botPrice"
+type="number"
+step="0.01"
+placeholder="Price"
+>
+
+
+<input
+id="botStock"
+type="number"
+placeholder="Stock"
+>
+
+
+<button
+onclick="addBot()"
+>
+
+Add Bot
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- BOT LIST -->
+
+
+<section
+class="bot-list"
+id="botList"
+>
+
+
+</section>
+
+
+</main>
+
+
+
+<script>
+
+
+// ======================================
+// DATABASE
+// ======================================
+
+
+let bots =
+
+JSON.parse(
+
+localStorage.getItem(
+"ownerBots"
+)
+
+) || [];
+
+
+
+// ======================================
+// SAVE
+// ======================================
+
+
+function saveBots() {
+
+    localStorage.setItem(
+
+        "ownerBots",
+
+        JSON.stringify(
+            bots
+        )
+
+    );
+
+}
+
+
+
+// ======================================
+// ADD BOT
+// ======================================
+
+
+function addBot() {
+
+
+    const name =
+
+    document
+    .getElementById(
+        "botName"
+    )
+    .value
+    .trim();
+
+
+    const price =
+
+    Number(
+
+        document
+        .getElementById(
+            "botPrice"
+        )
+        .value
+
+    );
+
+
+    const stock =
+
+    Number(
+
+        document
+        .getElementById(
+            "botStock"
+        )
+        .value
+
+    );
+
+
+    if (
+
+        !name ||
+
+        !price ||
+
+        stock < 0
+
+    ) {
+
+
+        alert(
+            "Please enter valid information."
+        );
+
+
+        return;
+
+    }
+
+
+
+    bots.push({
+
+        id:
+        Date.now(),
+
+        name:
+        name,
+
+        price:
+        price,
+
+        stock:
+        stock,
+
+        hidden:
+        false
+
+    });
+
+
+
+    saveBots();
+
+
+    renderBots();
+
+
+    document
+    .getElementById(
+        "botName"
+    )
+    .value = "";
+
+
+    document
+    .getElementById(
+        "botPrice"
+    )
+    .value = "";
+
+
+    document
+    .getElementById(
+        "botStock"
+    )
+    .value = "";
+
+}
+
+
+
+// ======================================
+// RESTOCK
+// ======================================
+
+
+function restockBot(
+    id
+) {
+
+
+    const amount =
+
+    Number(
+
+        prompt(
+            "How many items do you want to add?"
+        )
+
+    );
+
+
+    if (
+
+        !amount ||
+
+        amount <= 0
+
+    ) {
+
+        return;
+
+    }
+
+
+    const bot =
+
+    bots.find(
+
+        item =>
+        item.id === id
+
+    );
+
+
+    if (bot) {
+
+        bot.stock += amount;
+
+    }
+
+
+    saveBots();
+
+
+    renderBots();
+
+}
+
+
+
+// ======================================
+// HIDE / SHOW
+// ======================================
+
+
+function toggleBot(
+    id
+) {
+
+
+    const bot =
+
+    bots.find(
+
+        item =>
+        item.id === id
+
+    );
+
+
+    if (bot) {
+
+        bot.hidden =
+        !bot.hidden;
+
+    }
+
+
+    saveBots();
+
+
+    renderBots();
+
+}
+
+
+
+// ======================================
+// DELETE
+// ======================================
+
+
+function deleteBot(
+    id
+) {
+
+
+    const confirmDelete =
+
+    confirm(
+
+        "Are you sure you want to delete this bot?"
+
+    );
+
+
+    if (!confirmDelete) {
+
+        return;
+
+    }
+
+
+    bots =
+
+    bots.filter(
+
+        bot =>
+        bot.id !== id
+
+    );
+
+
+    saveBots();
+
+
+    renderBots();
+
+}
+
+
+
+// ======================================
+// RENDER
+// ======================================
+
+
+function renderBots() {
+
+
+    const list =
+
+    document
+    .getElementById(
+        "botList"
+    );
+
+
+    list.innerHTML = "";
+
+
+    if (
+        bots.length === 0
+    ) {
+
+
+        list.innerHTML = `
+
+        <div class="empty">
+
+        No bots added yet.
+
+        </div>
+
+        `;
+
+
+    }
+
+
+
+    bots.forEach(
+
+        bot => {
+
+
+            const div =
+
+            document
+            .createElement(
+                "div"
+            );
+
+
+            div.className =
+            "bot";
+
+
+            div.innerHTML = `
+
+            <div class="bot-info">
+
+                <h3>
+                ${bot.name}
+                </h3>
+
+                <p>
+                €${bot.price.toFixed(2)}
+                · Stock: ${bot.stock}
+                · ${bot.hidden ? "Hidden" : "Visible"}
+                </p>
+
+            </div>
+
+
+            <div class="actions">
+
+
+                <button
+                class="restock"
+                onclick="restockBot(${bot.id})"
+                >
+
+                + Restock
+
+                </button>
+
+
+                <button
+                class="hide"
+                onclick="toggleBot(${bot.id})"
+                >
+
+                ${bot.hidden ? "Show" : "Hide"}
+
+                </button>
+
+
+                <button
+                class="delete"
+                onclick="deleteBot(${bot.id})"
+                >
+
+                Delete
+
+                </button>
+
+
+            </div>
+
+            `;
+
+
+            list.appendChild(
+                div
+            );
+
+        }
+
+    );
+
+
+
+    updateStats();
+
+}
+
+
+
+// ======================================
+// STATS
+// ======================================
+
+
+function updateStats() {
+
+
+    document
+    .getElementById(
+        "totalBots"
+    )
+    .textContent =
+
+    bots.length;
+
+
+
+    document
+    .getElementById(
+        "totalStock"
+    )
+    .textContent =
+
+    bots.reduce(
+
+        (
+            total,
+            bot
+        ) =>
+
+        total +
+        bot.stock,
+
+        0
+
+    );
+
+
+
+    document
+    .getElementById(
+        "hiddenBots"
+    )
+    .textContent =
+
+    bots.filter(
+
+        bot =>
+        bot.hidden
+
+    ).length;
+
+}
+
+
+
+// ======================================
+// START
+// ======================================
+
+
+renderBots();
+
+
+</script>
+
+
+</body>
+
+</html>
+```
