@@ -1,0 +1,330 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Support Ticket | Discord Board Marketplace</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0d12;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 70px auto;
+            padding: 20px;
+        }
+
+        .card {
+            padding: 40px;
+            background: #11141c;
+            border: 1px solid #242936;
+            border-radius: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .description {
+            margin-bottom: 30px;
+            color: #999eac;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 13px;
+            background: #0b0d12;
+            color: white;
+            border: 1px solid #242936;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #5865f2;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #5865f2;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4752c4;
+        }
+
+        .message {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #18201c;
+            border: 1px solid #2d6040;
+            border-radius: 8px;
+            color: #7ee2a8;
+        }
+
+        .back {
+            display: block;
+            margin-top: 25px;
+            text-align: center;
+            color: #8f95a5;
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <div class="card">
+
+
+        <h1>
+            🎫 Support Ticket
+        </h1>
+
+
+        <p class="description">
+            Fill in the form below and our support team
+            will help you.
+        </p>
+
+
+        <form
+            id="ticketForm"
+        >
+
+
+            <label>
+                Your Name
+            </label>
+
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+
+            <label>
+                Your Email
+            </label>
+
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <label>
+                Category
+            </label>
+
+
+            <select
+                id="category"
+                required
+            >
+
+                <option value="">
+                    Select a category
+                </option>
+
+                <option value="Order">
+                    Order Problem
+                </option>
+
+                <option value="Bot">
+                    Bot Problem
+                </option>
+
+                <option value="Hosting">
+                    Hosting Problem
+                </option>
+
+                <option value="Payment">
+                    Payment Problem
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+
+            <label>
+                Message
+            </label>
+
+
+            <textarea
+                id="message"
+                placeholder="Describe your problem..."
+                required
+            ></textarea>
+
+
+            <button
+                type="submit"
+            >
+                Submit Ticket
+            </button>
+
+
+        </form>
+
+
+        <div
+            id="successMessage"
+            class="message"
+        >
+            Your support request has been submitted.
+            Our team will contact you soon.
+        </div>
+
+
+        <a
+            href="support.html"
+            class="back"
+        >
+            ← Back to Support
+        </a>
+
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+document
+.getElementById("ticketForm")
+.addEventListener(
+    "submit",
+    function(event) {
+
+
+        event.preventDefault();
+
+
+        const name =
+        document.getElementById(
+            "name"
+        ).value;
+
+
+        const email =
+        document.getElementById(
+            "email"
+        ).value;
+
+
+        const category =
+        document.getElementById(
+            "category"
+        ).value;
+
+
+        const message =
+        document.getElementById(
+            "message"
+        ).value;
+
+
+        console.log({
+
+            name: name,
+
+            email: email,
+
+            category: category,
+
+            message: message
+
+        });
+
+
+        document
+        .getElementById(
+            "successMessage"
+        )
+        .style.display =
+        "block";
+
+
+        document
+        .getElementById(
+            "ticketForm"
+        )
+        .reset();
+
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
+```
