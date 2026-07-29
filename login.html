@@ -1,0 +1,172 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>Login | Discord Board Marketplace</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0d12;
+    color: white;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 430px;
+    padding: 40px;
+    background: #11141c;
+    border: 1px solid #242936;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #5865f2;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #999eac;
+    margin-bottom: 30px;
+}
+
+.login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.google {
+    background: white;
+    color: #202124;
+}
+
+.google:hover {
+    background: #e8e8e8;
+}
+
+.discord {
+    background: #5865f2;
+    color: white;
+}
+
+.discord:hover {
+    background: #4752c4;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 25px;
+    color: #999eac;
+    text-decoration: none;
+}
+
+.back:hover {
+    color: white;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+
+<div class="logo">
+
+Discord Board Marketplace
+
+</div>
+
+
+<p class="subtitle">
+
+Sign in to continue
+
+</p>
+
+
+<a
+href="/auth/google"
+class="login-button google"
+>
+
+<span class="icon">
+G
+</span>
+
+Continue with Google
+
+</a>
+
+
+<a
+href="/auth/discord"
+class="login-button discord"
+>
+
+<span class="icon">
+💬
+</span>
+
+Continue with Discord
+
+</a>
+
+
+<a
+href="index.html"
+class="back"
+>
+
+← Back to Home
+
+</a>
+
+
+</div>
+
+
+</body>
+
+</html>
+```
