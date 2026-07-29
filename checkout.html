@@ -4,220 +4,209 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
-    <title>Checkout | Discord Board Marketplace</title>
+<title>Checkout | Discord Board Marketplace</title>
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0b0d12;
-            color: white;
-            min-height: 100vh;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0d12;
+    color: white;
+    min-height: 100vh;
+}
 
-        nav {
-            min-height: 70px;
-            padding: 15px 8%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #11141c;
-            border-bottom: 1px solid #242936;
-        }
+nav {
+    padding: 18px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #11141c;
+    border-bottom: 1px solid #242936;
+}
 
-        .logo {
-            color: #5865f2;
-            font-size: 22px;
-            font-weight: bold;
-            text-decoration: none;
-        }
+.logo {
+    color: #5865f2;
+    font-size: 21px;
+    font-weight: bold;
+    text-decoration: none;
+}
 
-        .cart {
-            color: white;
-            text-decoration: none;
-            background: #5865f2;
-            padding: 10px 18px;
-            border-radius: 8px;
-        }
+.back {
+    color: #d5d7df;
+    text-decoration: none;
+}
 
-        .container {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 20px;
-        }
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+}
 
-        h1 {
-            text-align: center;
-            margin-bottom: 10px;
-        }
+h1 {
+    margin-bottom: 30px;
+}
 
-        .subtitle {
-            text-align: center;
-            color: #999eac;
-            margin-bottom: 40px;
-        }
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
 
-        .order {
-            padding: 25px;
-            margin-bottom: 25px;
-            background: #11141c;
-            border: 1px solid #242936;
-            border-radius: 15px;
-        }
+.box {
+    padding: 30px;
+    background: #11141c;
+    border: 1px solid #242936;
+    border-radius: 16px;
+}
 
-        .order h2 {
-            margin-bottom: 20px;
-        }
+.box h2 {
+    margin-bottom: 25px;
+}
 
-        #cartItems {
-            color: #c3c6d0;
-            line-height: 2;
-        }
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #242936;
+}
 
-        .total {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #242936;
-            font-size: 22px;
-            font-weight: bold;
-            color: #5865f2;
-        }
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #5865f2;
+}
 
-        .payment-title {
-            margin-bottom: 20px;
-        }
+label {
+    display: block;
+    margin: 15px 0 7px;
+    color: #c3c6d0;
+}
 
-        .payment-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px;
+    background: #0b0d12;
+    border: 1px solid #303542;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+}
 
-        .payment-option {
-            padding: 25px;
-            background: #11141c;
-            border: 2px solid #242936;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
 
-        .payment-option:hover {
-            border-color: #5865f2;
-        }
+.payment-methods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+}
 
-        .payment-option.active {
-            border-color: #5865f2;
-            background: #151927;
-        }
+.payment-method {
+    padding: 18px;
+    background: #0b0d12;
+    border: 2px solid #303542;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
 
-        .payment-option h2 {
-            margin-bottom: 10px;
-        }
+.payment-method.active {
+    border-color: #5865f2;
+    background: #171a27;
+}
 
-        .payment-option p {
-            color: #999eac;
-        }
+.payment-method input {
+    display: none;
+}
 
-        .payment-details {
-            display: none;
-            margin-top: 25px;
-            padding: 30px;
-            background: #11141c;
-            border: 1px solid #242936;
-            border-radius: 15px;
-        }
+.payment-info {
+    margin-top: 20px;
+    padding: 15px;
+    background: #171a22;
+    border-radius: 8px;
+    color: #999eac;
+    line-height: 1.6;
+}
 
-        .payment-details.active {
-            display: block;
-        }
+.submit {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #5865f2;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-        .payment-details h2 {
-            margin-bottom: 20px;
-        }
+.submit:hover {
+    background: #4752c4;
+}
 
-        .detail {
-            margin-bottom: 15px;
-            padding: 15px;
-            background: #0b0d12;
-            border-radius: 8px;
-        }
+.empty {
+    text-align: center;
+    padding: 50px;
+}
 
-        .detail strong {
-            display: block;
-            margin-bottom: 5px;
-            color: #999eac;
-        }
+.loading {
+    display: none;
+    text-align: center;
+    padding: 40px;
+}
 
-        .detail span {
-            font-size: 17px;
-            font-weight: bold;
-            word-break: break-word;
-        }
+.spinner {
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 20px;
+    border: 5px solid #242936;
+    border-top-color: #5865f2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
 
-        .copy-button {
-            margin-top: 8px;
-            padding: 7px 12px;
-            border: none;
-            border-radius: 5px;
-            background: #242936;
-            color: white;
-            cursor: pointer;
-        }
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
 
-        .confirm-button {
-            width: 100%;
-            margin-top: 25px;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            background: #5865f2;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+@media (max-width: 750px) {
 
-        .confirm-button:hover {
-            background: #4752c4;
-        }
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
 
-        .notice {
-            margin-top: 20px;
-            padding: 15px;
-            background: #181a22;
-            border-radius: 8px;
-            color: #999eac;
-            line-height: 1.6;
-        }
+    .payment-methods {
+        grid-template-columns: 1fr;
+    }
 
-        @media (max-width: 700px) {
+}
 
-            nav {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .payment-options {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-    </style>
+</style>
 
 </head>
 
@@ -227,20 +216,19 @@
 
 <nav>
 
-    <a
-        href="index.html"
-        class="logo"
-    >
-        Discord Board Marketplace
-    </a>
+<a
+href="index.html"
+class="logo"
+>
+Discord Board Marketplace
+</a>
 
-
-    <a
-        href="cart.html"
-        class="cart"
-    >
-        🛒 Back to Cart
-    </a>
+<a
+href="cart.html"
+class="back"
+>
+← Back to Cart
+</a>
 
 </nav>
 
@@ -248,215 +236,190 @@
 <main class="container">
 
 
-    <h1>
-        Checkout
-    </h1>
+<div id="checkoutContent">
 
 
-    <p class="subtitle">
-        Review your order and select your payment method.
-    </p>
+<h1>
+Checkout
+</h1>
 
 
-    <!-- ORDER -->
+<div class="checkout-grid">
 
 
-    <section class="order">
+<!-- ORDER SUMMARY -->
 
-        <h2>
-            🛒 Your Order
-        </h2>
+<section class="box">
 
+<h2>
+Your Order
+</h2>
 
-        <div id="cartItems">
-            Loading cart...
-        </div>
+<div id="orderItems">
+</div>
 
+<div class="total">
 
-        <div class="total">
+<span>
+Total
+</span>
 
-            Total:
-            €<span id="totalPrice">0.00</span>
+<span>
+€<span id="total">0.00</span>
+</span>
 
-        </div>
+</div>
 
-    </section>
+</section>
 
 
-    <!-- PAYMENT -->
+<!-- CUSTOMER INFORMATION -->
 
+<section class="box">
 
-    <h2 class="payment-title">
-        Select Payment Method
-    </h2>
+<h2>
+Customer Information
+</h2>
 
 
-    <section class="payment-options">
+<form id="checkoutForm">
 
 
-        <div
-            class="payment-option"
-            id="paypalOption"
-            onclick="selectPayment('paypal')"
-        >
+<label for="name">
+Full Name
+</label>
 
-            <h2>
-                💳 PayPal
-            </h2>
+<input
+id="name"
+type="text"
+required
+placeholder="Your name"
+>
 
-            <p>
-                Pay securely using PayPal.
-            </p>
 
-        </div>
+<label for="email">
+Email
+</label>
 
+<input
+id="email"
+type="email"
+required
+placeholder="you@example.com"
+>
 
-        <div
-            class="payment-option"
-            id="revolutOption"
-            onclick="selectPayment('revolut')"
-        >
 
-            <h2>
-                💶 Revolut
-            </h2>
+<label for="discord">
+Discord Username
+</label>
 
-            <p>
-                Pay using Revolut.
-            </p>
+<input
+id="discord"
+type="text"
+required
+placeholder="username"
+>
 
-        </div>
 
+<label>
+Payment Method
+</label>
 
-    </section>
 
+<div class="payment-methods">
 
-    <!-- PAYPAL DETAILS -->
 
+<label class="payment-method">
 
-    <section
-        class="payment-details"
-        id="paypalDetails"
-    >
+<input
+type="radio"
+name="payment"
+value="PayPal"
+required
+>
 
-        <h2>
-            💳 PayPal Payment
-        </h2>
+PayPal
 
+</label>
 
-        <div class="detail">
 
-            <strong>
-                PayPal Email
-            </strong>
+<label class="payment-method">
 
-            <span id="paypalEmail">
-                YOUR-PAYPAL-EMAIL@example.com
-            </span>
+<input
+type="radio"
+name="payment"
+value="Revolut"
+>
 
-            <br>
+Revolut
 
-            <button
-                class="copy-button"
-                onclick="copyText('paypalEmail')"
-            >
-                Copy
-            </button>
+</label>
 
-        </div>
 
+</div>
 
-        <div class="notice">
 
-            Send the exact total amount shown above
-            to the PayPal account.
+<div
+id="paymentInfo"
+class="payment-info"
+>
 
-        </div>
+Select a payment method.
 
+</div>
 
-        <button
-            class="confirm-button"
-            onclick="confirmPayment('PayPal')"
-        >
-            I Have Completed My Payment
-        </button>
 
-    </section>
+<label for="notes">
+Order Notes
+</label>
 
+<textarea
+id="notes"
+placeholder="Optional notes..."
+></textarea>
 
-    <!-- REVOLUT DETAILS -->
 
+<button
+type="submit"
+class="submit"
+>
 
-    <section
-        class="payment-details"
-        id="revolutDetails"
-    >
+Continue to Payment
 
-        <h2>
-            💶 Revolut Payment
-        </h2>
+</button>
 
 
-        <div class="detail">
+</form>
 
-            <strong>
-                Revolut Username
-            </strong>
 
-            <span id="revolutUsername">
-                @YOUR-REVOLUT-USERNAME
-            </span>
+</section>
 
-            <br>
 
-            <button
-                class="copy-button"
-                onclick="copyText('revolutUsername')"
-            >
-                Copy
-            </button>
+</div>
 
-        </div>
 
+</div>
 
-        <div class="detail">
 
-            <strong>
-                Revolut Payment Link
-            </strong>
+<!-- LOADING -->
 
-            <span id="revolutLink">
-                YOUR-REVOLUT-PAYMENT-LINK
-            </span>
+<div
+id="loading"
+class="loading"
+>
 
-            <br>
+<div class="spinner">
+</div>
 
-            <button
-                class="copy-button"
-                onclick="copyText('revolutLink')"
-            >
-                Copy
-            </button>
+<h2>
+Preparing your checkout...
+</h2>
 
-        </div>
+<p>
+Please wait a moment.
+</p>
 
-
-        <div class="notice">
-
-            Send the exact total amount shown above
-            using Revolut.
-
-        </div>
-
-
-        <button
-            class="confirm-button"
-            onclick="confirmPayment('Revolut')"
-        >
-            I Have Completed My Payment
-        </button>
-
-    </section>
+</div>
 
 
 </main>
@@ -465,246 +428,395 @@
 <script>
 
 
-/* =========================
-   LOAD CART
-========================= */
-
-
 let cart =
-    JSON.parse(
-        localStorage.getItem("cart")
-    ) || [];
+
+JSON.parse(
+
+localStorage.getItem(
+"cart"
+)
+
+) || [];
+
+
+const orderItems =
+
+document.getElementById(
+"orderItems"
+);
+
+
+const totalElement =
+
+document.getElementById(
+"total"
+);
 
 
 let total = 0;
 
 
-const cartItems =
-    document.getElementById(
-        "cartItems"
-    );
+if (
+cart.length === 0
+) {
 
 
-if (cart.length === 0) {
+orderItems.innerHTML = `
 
-    cartItems.innerHTML =
-        "Your cart is empty.";
+<div class="empty">
+
+<h2>
+Your cart is empty.
+</h2>
+
+<a href="bots.html">
+Go back to Bots
+</a>
+
+</div>
+
+`;
+
 
 } else {
 
 
-    cartItems.innerHTML = "";
+cart.forEach(
+
+item => {
 
 
-    cart.forEach(
-        function(item) {
+const price =
+
+Number(item.price) || 0;
 
 
-            const div =
-                document.createElement(
-                    "div"
-                );
+total += price;
 
 
-            div.textContent =
-                item.name +
-                " — €" +
-                Number(
-                    item.price
-                ).toFixed(2);
+const div =
+
+document.createElement(
+"div"
+);
 
 
-            cartItems.appendChild(
-                div
-            );
+div.className =
+"order-item";
 
 
-            total +=
-                Number(
-                    item.price
-                );
+div.innerHTML = `
+
+<span>
+${item.name}
+</span>
+
+<strong>
+€${price.toFixed(2)}
+</strong>
+
+`;
 
 
-        }
-    );
+orderItems.appendChild(
+div
+);
+
+
+}
+
+);
+
 
 }
 
 
-document.getElementById(
-    "totalPrice"
-).textContent =
+totalElement.textContent =
+
 total.toFixed(2);
 
 
-/* =========================
-   SELECT PAYMENT
-========================= */
+
+/* PAYMENT SELECTION */
 
 
-function selectPayment(
-    method
+const paymentButtons =
+
+document.querySelectorAll(
+".payment-method"
+);
+
+
+const paymentInfo =
+
+document.getElementById(
+"paymentInfo"
+);
+
+
+paymentButtons.forEach(
+
+button => {
+
+
+button.addEventListener(
+
+"click",
+
+function() {
+
+
+paymentButtons.forEach(
+
+item =>
+
+item.classList.remove(
+"active"
+)
+
+);
+
+
+this.classList.add(
+"active"
+);
+
+
+const input =
+
+this.querySelector(
+"input"
+);
+
+
+if (
+input.value ===
+"PayPal"
 ) {
 
 
-    document
-        .getElementById(
-            "paypalOption"
-        )
-        .classList.remove(
-            "active"
-        );
+paymentInfo.innerHTML =
 
-
-    document
-        .getElementById(
-            "revolutOption"
-        )
-        .classList.remove(
-            "active"
-        );
-
-
-    document
-        .getElementById(
-            "paypalDetails"
-        )
-        .classList.remove(
-            "active"
-        );
-
-
-    document
-        .getElementById(
-            "revolutDetails"
-        )
-        .classList.remove(
-            "active"
-        );
-
-
-    if (
-        method ===
-        "paypal"
-    ) {
-
-
-        document
-            .getElementById(
-                "paypalOption"
-            )
-            .classList.add(
-                "active"
-            );
-
-
-        document
-            .getElementById(
-                "paypalDetails"
-            )
-            .classList.add(
-                "active"
-            );
-
-
-    }
-
-
-    if (
-        method ===
-        "revolut"
-    ) {
-
-
-        document
-            .getElementById(
-                "revolutOption"
-            )
-            .classList.add(
-                "active"
-            );
-
-
-        document
-            .getElementById(
-                "revolutDetails"
-            )
-            .classList.add(
-                "active"
-            );
-
-
-    }
-
+"PayPal selected. " +
+"After submitting your order, " +
+"you will be redirected to the " +
+"official PayPal checkout.";
 
 }
 
 
-/* =========================
-   COPY DETAILS
-========================= */
-
-
-function copyText(
-    elementId
+if (
+input.value ===
+"Revolut"
 ) {
 
 
-    const text =
-        document
-            .getElementById(
-                elementId
-            )
-            .textContent;
+paymentInfo.innerHTML =
 
-
-    navigator.clipboard.writeText(
-        text
-    );
-
-
-    alert(
-        "Copied!"
-    );
-
+"Revolut selected. " +
+"After submitting your order, " +
+"you will continue to the " +
+"official Revolut payment page.";
 
 }
 
 
-/* =========================
-   PAYMENT CONFIRMATION
-========================= */
+}
+
+);
+
+}
+
+);
 
 
-function confirmPayment(
-    method
+
+/* CHECKOUT */
+
+
+document
+.getElementById(
+"checkoutForm"
+)
+.addEventListener(
+
+"submit",
+
+function(event) {
+
+
+event.preventDefault();
+
+
+if (
+cart.length === 0
 ) {
 
+alert(
+"Your cart is empty."
+);
 
-    if (
-        cart.length === 0
-    ) {
+return;
 
-        alert(
-            "Your cart is empty."
-        );
-
-        return;
-
-    }
+}
 
 
-    alert(
+const name =
 
-        "Payment method selected: " +
-        method +
-        ".\n\n" +
-        "Your order has been submitted for review."
+document
+.getElementById(
+"name"
+)
+.value.trim();
 
-    );
+
+const email =
+
+document
+.getElementById(
+"email"
+)
+.value.trim();
+
+
+const discord =
+
+document
+.getElementById(
+"discord"
+)
+.value.trim();
+
+
+const payment =
+
+document
+.querySelector(
+'input[name="payment"]:checked'
+);
+
+
+if (
+!payment
+) {
+
+alert(
+"Please select a payment method."
+);
+
+return;
+
+}
+
+
+/* SHOW LOADING */
+
+
+document
+.getElementById(
+"checkoutContent"
+)
+.style.display =
+"none";
+
+
+document
+.getElementById(
+"loading"
+)
+.style.display =
+"block";
+
+
+const orderId =
+
+"DBM-" +
+Date.now();
+
+
+setTimeout(
+
+function() {
+
+
+/*
+    FRONTEND DEMO FLOW
+
+    Real payment requires
+    official PayPal/Revolut
+    checkout integration.
+*/
+
+
+const params =
+
+new URLSearchParams({
+
+order:
+orderId,
+
+payment:
+payment.value,
+
+total:
+total.toFixed(2)
+
+});
+
+
+localStorage.setItem(
+
+"lastOrder",
+
+JSON.stringify({
+
+orderId:
+orderId,
+
+name:
+name,
+
+email:
+email,
+
+discord:
+discord,
+
+payment:
+payment.value,
+
+total:
+total,
+
+items:
+cart
+
+})
+
+);
+
+
+localStorage.removeItem(
+"cart"
+);
+
+
+window.location.href =
+
+"order-success.html?" +
+params.toString();
+
+
+},
+
+1500
+
+);
 
 
 }
+
+);
 
 
 </script>
