@@ -1,0 +1,643 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>Hosting Plans | Discord Board Marketplace</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0d12;
+    color: white;
+    min-height: 100vh;
+}
+
+
+/* NAVBAR */
+
+nav {
+    padding: 18px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #11141c;
+    border-bottom: 1px solid #242936;
+}
+
+.logo {
+    color: #5865f2;
+    font-size: 21px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #d5d7df;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #5865f2;
+}
+
+.cart {
+    padding: 10px 17px;
+    background: #5865f2;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* HERO */
+
+.hero {
+    padding: 75px 20px 50px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    color: #999eac;
+    line-height: 1.7;
+}
+
+
+/* PLANS */
+
+.plans {
+    max-width: 1100px;
+    margin: 20px auto 80px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+/* CARD */
+
+.plan {
+    position: relative;
+    padding: 35px 25px;
+    background: #11141c;
+    border: 1px solid #242936;
+    border-radius: 18px;
+    text-align: center;
+    transition: 0.25s;
+}
+
+.plan:hover {
+    transform: translateY(-6px);
+    border-color: #5865f2;
+}
+
+
+/* POPULAR */
+
+.popular {
+    border: 2px solid #5865f2;
+}
+
+.badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 7px 15px;
+    background: #5865f2;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* PLAN TITLE */
+
+.plan h2 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+
+/* PRICE */
+
+.price {
+    margin-bottom: 25px;
+    font-size: 38px;
+    font-weight: bold;
+    color: #5865f2;
+}
+
+.price span {
+    font-size: 14px;
+    color: #999eac;
+    font-weight: normal;
+}
+
+
+/* FEATURES */
+
+.features {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.features li {
+    padding: 10px;
+    color: #c3c6d0;
+    border-bottom: 1px solid #242936;
+}
+
+
+/* BUTTON */
+
+.button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #5865f2;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #4752c4;
+}
+
+
+/* FREE */
+
+.free-button {
+    background: #242936;
+}
+
+.free-button:hover {
+    background: #303644;
+}
+
+
+/* MESSAGE */
+
+#message {
+    display: none;
+    max-width: 600px;
+    margin: -40px auto 50px;
+    padding: 18px;
+    text-align: center;
+    background: #11141c;
+    border: 1px solid #5865f2;
+    border-radius: 10px;
+    color: #d5d7df;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .plans {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+
+<a
+href="index.html"
+class="logo"
+>
+
+Discord Board Marketplace
+
+</a>
+
+
+<ul class="nav-links">
+
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
+
+<li>
+<a href="bots.html">
+Bots
+</a>
+</li>
+
+<li>
+<a href="hosting-plans.html">
+Hosting
+</a>
+</li>
+
+<li>
+<a href="support.html">
+Support
+</a>
+</li>
+
+</ul>
+
+
+<a
+href="cart.html"
+class="cart"
+>
+
+🛒 Cart
+
+</a>
+
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+
+<h1>
+
+Choose Your Hosting Plan
+
+</h1>
+
+
+<p>
+
+Choose the hosting plan that fits your
+Discord bot. Add your plan to the cart
+and continue to checkout.
+
+</p>
+
+
+</section>
+
+
+
+<!-- PLANS -->
+
+<section class="plans">
+
+
+
+<!-- FREE -->
+
+<div class="plan">
+
+
+<h2>
+
+Free
+
+</h2>
+
+
+<div class="price">
+
+€0
+
+<span>
+ / month
+</span>
+
+</div>
+
+
+<ul class="features">
+
+<li>
+1 Discord Bot
+</li>
+
+<li>
+Basic Resources
+</li>
+
+<li>
+Community Support
+</li>
+
+<li>
+External Free Hosting Options
+</li>
+
+</ul>
+
+
+<a
+href="free-hosting.html"
+class="button free-button"
+>
+
+View Free Options
+
+</a>
+
+
+</div>
+
+
+
+<!-- STANDARD -->
+
+<div class="plan popular">
+
+
+<div class="badge">
+
+MOST POPULAR
+
+</div>
+
+
+<h2>
+
+Standard
+
+</h2>
+
+
+<div class="price">
+
+€2.99
+
+<span>
+ / month
+</span>
+
+</div>
+
+
+<ul class="features">
+
+<li>
+1 Discord Bot
+</li>
+
+<li>
+512 MB RAM
+</li>
+
+<li>
+Automatic Restart
+</li>
+
+<li>
+Basic Logs
+</li>
+
+<li>
+Priority Support
+</li>
+
+</ul>
+
+
+<button
+class="button"
+onclick="addHostingToCart(
+'Standard Hosting',
+2.99
+)"
+>
+
+Add Standard to Cart
+
+</button>
+
+
+</div>
+
+
+
+<!-- PRO -->
+
+<div class="plan">
+
+
+<h2>
+
+Pro
+
+</h2>
+
+
+<div class="price">
+
+€5.99
+
+<span>
+ / month
+</span>
+
+</div>
+
+
+<ul class="features">
+
+<li>
+Up to 3 Discord Bots
+</li>
+
+<li>
+2 GB RAM
+</li>
+
+<li>
+Automatic Restart
+</li>
+
+<li>
+Advanced Logs
+</li>
+
+<li>
+Priority Support
+</li>
+
+</ul>
+
+
+<button
+class="button"
+onclick="addHostingToCart(
+'Pro Hosting',
+5.99
+)"
+>
+
+Add Pro to Cart
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- MESSAGE -->
+
+<div id="message">
+
+Hosting plan added to your cart!
+
+</div>
+
+
+
+<script>
+
+
+function addHostingToCart(
+    planName,
+    price
+) {
+
+
+    let cart =
+
+    JSON.parse(
+
+        localStorage.getItem(
+            "cart"
+        )
+
+    ) || [];
+
+
+    cart.push({
+
+        id:
+        "hosting-" +
+        Date.now(),
+
+        name:
+        planName,
+
+        price:
+        Number(price),
+
+        type:
+        "hosting"
+
+    });
+
+
+    localStorage.setItem(
+
+        "cart",
+
+        JSON.stringify(cart)
+
+    );
+
+
+    const message =
+
+    document.getElementById(
+        "message"
+    );
+
+
+    message.style.display =
+    "block";
+
+
+    message.innerHTML =
+
+    "✅ " +
+    planName +
+    " has been added to your cart.";
+
+
+    setTimeout(
+
+        function() {
+
+            window.location.href =
+            "cart.html";
+
+        },
+
+        1000
+
+    );
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
+```
