@@ -1,0 +1,219 @@
+```javascript
+// ==========================================
+// DISCORD BOARD MARKETPLACE - CART SYSTEM
+// ==========================================
+
+
+// GET CART
+
+function getCart() {
+
+    return JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
+
+}
+
+
+// SAVE CART
+
+function saveCart(cart) {
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+// ADD PRODUCT
+
+function addToCart(
+    name,
+    price
+) {
+
+    const cart =
+        getCart();
+
+
+    cart.push({
+
+        id:
+        Date.now(),
+
+        name:
+        name,
+
+        price:
+        Number(price)
+
+    });
+
+
+    saveCart(cart);
+
+
+    updateCartDisplay();
+
+
+    alert(
+        name +
+        " was added to your cart!"
+    );
+
+}
+
+
+// REMOVE PRODUCT
+
+function removeFromCart(
+    id
+) {
+
+    let cart =
+        getCart();
+
+
+    cart =
+        cart.filter(
+
+            item =>
+            item.id !== id
+
+        );
+
+
+    saveCart(cart);
+
+
+    updateCartDisplay();
+
+
+    if (
+        typeof renderCart ===
+        "function"
+    ) {
+
+        renderCart();
+
+    }
+
+}
+
+
+// CLEAR CART
+
+function clearCart() {
+
+    localStorage.removeItem(
+        "cart"
+    );
+
+
+    updateCartDisplay();
+
+
+    if (
+        typeof renderCart ===
+        "function"
+    ) {
+
+        renderCart();
+
+    }
+
+}
+
+
+// CALCULATE TOTAL
+
+function getCartTotal() {
+
+    const cart =
+        getCart();
+
+
+    return cart.reduce(
+
+        (
+            total,
+            item
+        ) => {
+
+            return total +
+            Number(item.price || 0);
+
+        },
+
+        0
+
+    );
+
+}
+
+
+// UPDATE CART NAVIGATION
+
+function updateCartDisplay() {
+
+    const cart =
+        getCart();
+
+
+    const count =
+        cart.length;
+
+
+    const total =
+        getCartTotal();
+
+
+    const cartElements =
+
+        document.querySelectorAll(
+            ".cart"
+        );
+
+
+    cartElements.forEach(
+
+        element => {
+
+
+            element.innerHTML =
+
+            `
+            🛒 Cart
+            <span class="cart-count">
+            ${count}
+            </span>
+
+            <span class="cart-price">
+            €${total.toFixed(2)}
+            </span>
+            `;
+
+
+        }
+
+    );
+
+}
+
+
+// RUN WHEN PAGE LOADS
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    function() {
+
+        updateCartDisplay();
+
+    }
+
+);
+```
