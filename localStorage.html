@@ -1,0 +1,1059 @@
+```html
+<!-- ========================================= -->
+<!-- OWNER PANEL SYSTEM -->
+<!-- ========================================= -->
+
+<style>
+
+#ownerButton {
+
+    position: fixed;
+
+    bottom: 20px;
+
+    right: 20px;
+
+    z-index: 9999;
+
+    padding: 10px 16px;
+
+    background: #5865f2;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+#ownerPanel {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9998;
+
+    background: rgba(0,0,0,0.85);
+
+    overflow-y: auto;
+
+    padding: 40px 20px;
+
+}
+
+
+.owner-box {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    padding: 30px;
+
+    background: #11141c;
+
+    border: 1px solid #242936;
+
+    border-radius: 16px;
+
+}
+
+
+.owner-box h2 {
+
+    margin-top: 0;
+
+    color: #5865f2;
+
+}
+
+
+.owner-input {
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin: 7px 0;
+
+    box-sizing: border-box;
+
+    background: #0b0d12;
+
+    color: white;
+
+    border: 1px solid #303542;
+
+    border-radius: 8px;
+
+}
+
+
+.owner-button {
+
+    padding: 12px 18px;
+
+    margin: 5px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #5865f2;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+.owner-button:hover {
+
+    background: #4752c4;
+
+}
+
+
+.close-owner {
+
+    background: #d64545;
+
+}
+
+
+.owner-bot {
+
+    margin-top: 15px;
+
+    padding: 20px;
+
+    background: #0b0d12;
+
+    border: 1px solid #242936;
+
+    border-radius: 12px;
+
+}
+
+
+.restock-button {
+
+    background: #2d9d78;
+
+}
+
+
+.delete-button {
+
+    background: #d64545;
+
+}
+
+
+</style>
+
+
+
+<!-- OWNER BUTTON -->
+
+
+<button
+id="ownerButton"
+onclick="openOwnerPanel()"
+>
+
+🔐 Owner
+
+</button>
+
+
+
+<!-- OWNER PANEL -->
+
+
+<div
+id="ownerPanel"
+>
+
+
+<div
+class="owner-box"
+>
+
+
+<h2>
+
+🔐 Owner Bot Manager
+
+</h2>
+
+
+<p>
+
+Add and manage your marketplace bots.
+
+</p>
+
+
+
+<!-- ADD BOT -->
+
+
+<h3>
+
+➕ Add New Bot
+
+</h3>
+
+
+<input
+id="ownerBotName"
+class="owner-input"
+placeholder="Bot Name"
+>
+
+
+<input
+id="ownerBotId"
+class="owner-input"
+placeholder="Bot ID"
+>
+
+
+<input
+id="ownerBotPrice"
+class="owner-input"
+type="number"
+step="0.01"
+placeholder="Price"
+>
+
+
+<input
+id="ownerBotStock"
+class="owner-input"
+type="number"
+min="0"
+placeholder="Stock"
+>
+
+
+<input
+id="ownerBotImage"
+class="owner-input"
+placeholder="Image URL"
+>
+
+
+<textarea
+id="ownerBotDescription"
+class="owner-input"
+placeholder="Bot Description"
+></textarea>
+
+
+<button
+class="owner-button"
+onclick="ownerAddBot()"
+>
+
+➕ Add Bot
+
+</button>
+
+
+
+<hr>
+
+
+
+<!-- BOT LIST -->
+
+
+<h3>
+
+📦 Your Inventory
+
+</h3>
+
+
+<div
+id="ownerBotList"
+>
+
+</div>
+
+
+<button
+class="owner-button close-owner"
+onclick="closeOwnerPanel()"
+>
+
+Close Panel
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+// =========================================
+// DATABASE
+// =========================================
+
+
+let ownerBots = [];
+
+
+try {
+
+    ownerBots =
+
+    JSON.parse(
+
+        localStorage.getItem(
+            "DBM_OWNER_BOTS"
+        )
+
+    ) || [];
+
+} catch {
+
+    ownerBots = [];
+
+}
+
+
+
+// =========================================
+// OPEN OWNER PANEL
+// =========================================
+
+
+function openOwnerPanel() {
+
+
+    const password =
+
+    prompt(
+        "Enter Owner Password:"
+    );
+
+
+    if (
+        password !==
+        "CHANGE_THIS_PASSWORD"
+    ) {
+
+        alert(
+            "Access denied."
+        );
+
+        return;
+
+    }
+
+
+    document
+    .getElementById(
+        "ownerPanel"
+    )
+    .style.display =
+    "block";
+
+
+    renderOwnerBots();
+
+}
+
+
+
+// =========================================
+// CLOSE PANEL
+// =========================================
+
+
+function closeOwnerPanel() {
+
+
+    document
+    .getElementById(
+        "ownerPanel"
+    )
+    .style.display =
+    "none";
+
+}
+
+
+
+// =========================================
+// ADD BOT
+// =========================================
+
+
+function ownerAddBot() {
+
+
+    const name =
+
+    document
+    .getElementById(
+        "ownerBotName"
+    )
+    .value
+    .trim();
+
+
+    const botId =
+
+    document
+    .getElementById(
+        "ownerBotId"
+    )
+    .value
+    .trim();
+
+
+    const price =
+
+    Number(
+
+        document
+        .getElementById(
+            "ownerBotPrice"
+        )
+        .value
+
+    );
+
+
+    const stock =
+
+    Number(
+
+        document
+        .getElementById(
+            "ownerBotStock"
+        )
+        .value
+
+    );
+
+
+    const image =
+
+    document
+    .getElementById(
+        "ownerBotImage"
+    )
+    .value
+    .trim();
+
+
+    const description =
+
+    document
+    .getElementById(
+        "ownerBotDescription"
+    )
+    .value
+    .trim();
+
+
+
+    if (
+
+        !name ||
+
+        !botId ||
+
+        price <= 0 ||
+
+        stock < 0
+
+    ) {
+
+
+        alert(
+            "Please complete all required fields."
+        );
+
+
+        return;
+
+    }
+
+
+
+    const newBot = {
+
+
+        id:
+
+        Date.now(),
+
+
+        name:
+
+        name,
+
+
+        botId:
+
+        botId,
+
+
+        price:
+
+        price,
+
+
+        stock:
+
+        stock,
+
+
+        image:
+
+        image,
+
+
+        description:
+
+        description,
+
+
+        hidden:
+
+        false
+
+
+    };
+
+
+
+    ownerBots.push(
+        newBot
+    );
+
+
+    saveOwnerBots();
+
+
+    renderOwnerBots();
+
+
+    clearOwnerForm();
+
+
+    alert(
+        "Bot added successfully!"
+    );
+
+}
+
+
+
+// =========================================
+// RESTOCK BOT
+// =========================================
+
+
+function ownerRestock(
+    botId
+) {
+
+
+    const amount =
+
+    Number(
+
+        prompt(
+            "How many bots do you want to add to stock?"
+        )
+
+    );
+
+
+    if (
+
+        !Number.isInteger(
+            amount
+        ) ||
+
+        amount <= 0
+
+    ) {
+
+
+        alert(
+            "Enter a valid number."
+        );
+
+
+        return;
+
+    }
+
+
+
+    const bot =
+
+    ownerBots.find(
+
+        item =>
+
+        item.id ===
+        botId
+
+    );
+
+
+
+    if (!bot) {
+
+        return;
+
+    }
+
+
+
+    bot.stock +=
+    amount;
+
+
+    saveOwnerBots();
+
+
+    renderOwnerBots();
+
+
+    alert(
+
+        "Stock updated! " +
+
+        bot.name +
+
+        " now has " +
+
+        bot.stock +
+
+        " available."
+
+    );
+
+}
+
+
+
+// =========================================
+// HIDE / SHOW
+// =========================================
+
+
+function ownerToggle(
+    botId
+) {
+
+
+    const bot =
+
+    ownerBots.find(
+
+        item =>
+
+        item.id ===
+        botId
+
+    );
+
+
+    if (!bot) {
+
+        return;
+
+    }
+
+
+    bot.hidden =
+
+    !bot.hidden;
+
+
+    saveOwnerBots();
+
+
+    renderOwnerBots();
+
+}
+
+
+
+// =========================================
+// DELETE
+// =========================================
+
+
+function ownerDelete(
+    botId
+) {
+
+
+    if (
+
+        !confirm(
+            "Delete this bot from inventory?"
+        )
+
+    ) {
+
+        return;
+
+    }
+
+
+
+    ownerBots =
+
+    ownerBots.filter(
+
+        item =>
+
+        item.id !==
+        botId
+
+    );
+
+
+    saveOwnerBots();
+
+
+    renderOwnerBots();
+
+}
+
+
+
+// =========================================
+// SAVE
+// =========================================
+
+
+function saveOwnerBots() {
+
+
+    localStorage.setItem(
+
+        "DBM_OWNER_BOTS",
+
+        JSON.stringify(
+            ownerBots
+        )
+
+    );
+
+}
+
+
+
+// =========================================
+// RENDER OWNER INVENTORY
+// =========================================
+
+
+function renderOwnerBots() {
+
+
+    const list =
+
+    document
+    .getElementById(
+        "ownerBotList"
+    );
+
+
+    list.innerHTML = "";
+
+
+
+    if (
+        ownerBots.length === 0
+    ) {
+
+
+        list.innerHTML =
+
+        "<p>No bots in inventory.</p>";
+
+
+        return;
+
+    }
+
+
+
+    ownerBots.forEach(
+
+        bot => {
+
+
+            const div =
+
+            document
+            .createElement(
+                "div"
+            );
+
+
+            div.className =
+            "owner-bot";
+
+
+
+            div.innerHTML = `
+
+
+            <h3>
+
+            ${escapeHTML(
+                bot.name
+            )}
+
+            </h3>
+
+
+            <p>
+
+            Bot ID:
+            ${escapeHTML(
+                bot.botId
+            )}
+
+            </p>
+
+
+            <p>
+
+            Price:
+            €${bot.price.toFixed(2)}
+
+            </p>
+
+
+            <p>
+
+            Stock:
+            <strong>
+
+            ${bot.stock}
+
+            </strong>
+
+            </p>
+
+
+            <p>
+
+            Status:
+
+            ${
+                bot.hidden
+                ? "Hidden"
+                : "Visible"
+            }
+
+            </p>
+
+
+
+            <button
+
+            class="owner-button restock-button"
+
+            onclick=
+
+            "ownerRestock(
+                ${bot.id}
+            )"
+
+            >
+
+            🔄 Restock
+
+            </button>
+
+
+
+            <button
+
+            class="owner-button"
+
+            onclick=
+
+            "ownerToggle(
+                ${bot.id}
+            )"
+
+            >
+
+            ${
+                bot.hidden
+                ? "Show Bot"
+                : "Hide Bot"
+            }
+
+            </button>
+
+
+
+            <button
+
+            class="owner-button delete-button"
+
+            onclick=
+
+            "ownerDelete(
+                ${bot.id}
+            )"
+
+            >
+
+            🗑️ Delete
+
+            </button>
+
+
+            `;
+
+
+
+            list.appendChild(
+                div
+            );
+
+
+        }
+
+    );
+
+}
+
+
+
+// =========================================
+// CLEAR FORM
+// =========================================
+
+
+function clearOwnerForm() {
+
+
+    document
+    .getElementById(
+        "ownerBotName"
+    )
+    .value = "";
+
+
+    document
+    .getElementById(
+        "ownerBotId"
+    )
+    .value = "";
+
+
+    document
+    .getElementById(
+        "ownerBotPrice"
+    )
+    .value = "";
+
+
+    document
+    .getElementById(
+        "ownerBotStock"
+    )
+    .value = "";
+
+
+    document
+    .getElementById(
+        "ownerBotImage"
+    )
+    .value = "";
+
+
+    document
+    .getElementById(
+        "ownerBotDescription"
+    )
+    .value = "";
+
+}
+
+
+
+// =========================================
+// BASIC HTML ESCAPE
+// =========================================
+
+
+function escapeHTML(
+    text
+) {
+
+
+    return String(
+        text
+    )
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+</script>
+```
